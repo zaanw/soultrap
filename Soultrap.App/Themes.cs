@@ -36,7 +36,10 @@ public static class Themes
     {
         var color=(Color)ColorConverter.ConvertFromString(text);
         var previous=Application.Current.TryFindResource(key) is SolidColorBrush old ? old.Color : color;
-        var brush=new SolidColorBrush(color);Application.Current.Resources[key]=brush;
-        if(animate)brush.BeginAnimation(SolidColorBrush.ColorProperty,new ColorAnimation(previous,color,TimeSpan.FromMilliseconds(180)));
+        var brush=new SolidColorBrush(color);
+        // A resource consumer may freeze a nonanimated brush immediately on publication.
+        // Attach the animation while the fresh brush is still privately owned.
+        if(animate && previous!=color)brush.BeginAnimation(SolidColorBrush.ColorProperty,new ColorAnimation(previous,color,TimeSpan.FromMilliseconds(180)));
+        Application.Current.Resources[key]=brush;
     }
 }

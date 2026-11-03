@@ -80,6 +80,13 @@ public partial class App : Application
                 await window.Dispatcher.InvokeAsync(()=>{},System.Windows.Threading.DispatcherPriority.ContextIdle);
                 if(item.Header.ToString() is "Home" or "Settings" or "Upstream Settings")Capture(window,item.Header.ToString()!.Replace(' ','-').ToLowerInvariant());
             }
+            foreach(var theme in Catalog.Themes)
+            {
+                Themes.Apply(vm.Config with { Theme=theme });
+                window.UpdateLayout();
+                await window.Dispatcher.InvokeAsync(()=>{},System.Windows.Threading.DispatcherPriority.ContextIdle);
+            }
+            Themes.Apply(vm.Config);
             var search=(TextBox)window.FindName("NavigationSearch");search.Text="Maintenance";
             if(tabs.Items.Cast<TabItem>().Count(t=>t.Visibility==Visibility.Visible)!=1)throw new InvalidOperationException("Navigation search did not filter sections.");
             search.Clear();
