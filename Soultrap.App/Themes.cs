@@ -17,6 +17,10 @@ public static class Themes
             "Custom Theme"=>(settings.CustomAccent,"#F0F4F8","#182B3D"),
             _=>("#267AC4","#EDF5FC","#19364C")
         };
+        var accentColor=(Color)ColorConverter.ConvertFromString(accent);
+        static double Linear(byte value) { double x=value/255d; return x<=.04045?x/12.92:Math.Pow((x+.055)/1.055,2.4); }
+        double luminance=.2126*Linear(accentColor.R)+.7152*Linear(accentColor.G)+.0722*Linear(accentColor.B);
+        Change("AccentText",(luminance+.05)/.05>=1.05/(luminance+.05)?"#000000":"#FFFFFF",settings.Animations);
         Change("Accent",accent,settings.Animations);Change("Surface",surface,settings.Animations);Change("Ink",ink,settings.Animations);
         bool dark = settings.Theme is "Void Dark" or "Aero Dark";
         Change("Panel",dark?"#222227":"#FFFFFF",settings.Animations);
@@ -27,6 +31,7 @@ public static class Themes
         System.Windows.Media.RenderOptions.ProcessRenderMode = settings.SoftwareRendering ? System.Windows.Interop.RenderMode.SoftwareOnly : System.Windows.Interop.RenderMode.Default;
         if(Application.Current.MainWindow is MainWindow window)
         {
+            WindowChrome.Apply(window,dark);
             window.Opacity=settings.Opacity;
             window.Topmost=settings.AlwaysOnTop;
             ((System.Windows.FrameworkElement)window.Content).LayoutTransform = new ScaleTransform(settings.UiScale,settings.UiScale);
