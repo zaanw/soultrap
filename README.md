@@ -1,6 +1,6 @@
 # SOULTRAP — Ultimate Aero
 
-An independent Windows 11 WPF Roblox customization workbench, with compact Windows 7-inspired chrome. **Version 0.1.0 builds and passes automated tests in Windows and Linux CI; manual Windows GUI / Roblox acceptance is still outstanding.** Soultrap is not affiliated with Roblox.
+An independent Windows 11 WPF Roblox customization workbench, with a Voidstrap-inspired sidebar, dark/light themes and startup screen. Aero palettes are retained. **Version 0.2.0 adds the redesigned menu and working launcher preferences; real Roblox acceptance remains outstanding.** Soultrap is not affiliated with Roblox.
 
 ## Build and run
 
@@ -16,7 +16,7 @@ dotnet publish Soultrap.App -c Release -r win-x64 --self-contained true -o artif
 
 Run `artifacts/publish/Soultrap.exe`. Keep all published files together. End users of the self-contained folder need neither Visual Studio nor the .NET runtime. “Portable” means a relocatable application folder; user data remains in `%LOCALAPPDATA%\Soultrap`.
 
-For a per-user Windows installer, install Inno Setup 6 and compile `Soultrap.Installer/Soultrap.iss` after publishing. GitHub Actions builds/tests on Windows and Linux and uploads the ZIP and installer as workflow artifacts. A pushed commit is not evidence that the remote workflow passed. After successful Windows and Linux jobs, a main-branch push creates a draft prerelease with the packaged binaries if v0.1.0 does not already exist. No public release is auto-published and no executable is silently signed.
+For a per-user Windows installer, install Inno Setup 6 and compile `Soultrap.Installer/Soultrap.iss` after publishing. GitHub Actions builds/tests on Windows and Linux and uploads the ZIP and installer as workflow artifacts. A pushed commit is not evidence that the remote workflow passed. After successful Windows and Linux jobs, a main-branch push creates a draft prerelease with the packaged binaries if v0.2.0 does not already exist. No public release is auto-published and no executable is silently signed.
 
 ## Use
 
@@ -27,7 +27,7 @@ For a per-user Windows installer, install Inno Setup 6 and compile `Soultrap.Ins
 5. Restore in Diagnostics, newest backup first. Backups from other client versions cannot be applied. Restore all recorded changes with Restore Defaults. If no backup exists Soultrap cannot infer original bytes; repair through the official installer.
 6. Cursor Studio imports/decodes PNG, resizes it and centres the chosen click point. Export saves PNG, local custom cursor and editor metadata. Roblox does not consume arbitrary OS hotspot metadata.
 7. Presets support local JSON creation, edit/rename, duplicate, import, export, delete and cursor application. Built-ins cannot be overwritten or deleted. Classic preview selections do not alter in-game menus.
-8. Choose one of six themes; save settings to apply accent, background, text, opacity, animations and sounds. Autostart is a current-user Run key; minimizing to tray is optional. Theme Studio opens these settings.
+8. Choose one of eight themes; save settings to apply accent, background, text, opacity, animations and sounds. Autostart is a current-user Run key; minimizing to tray is optional. Theme Studio opens these settings.
 9. Developer Console requires the **current Windows account password**, freshly verified by Windows. First authentication enrolls a DPAPI-protected local owner marker. It does not grant administrator/Roblox privileges. Windows Hello and passwordless accounts are unsupported.
 
 ## Compatible mods
@@ -62,3 +62,7 @@ See [RESEARCH.md](RESEARCH.md), [ARCHITECTURE.md](ARCHITECTURE.md), [VALIDATION.
 ## SmartScreen / Unknown publisher
 
 Current CI downloads are unsigned. A trusted publisher certificate is required for Authenticode signing; a code change cannot guarantee suppression of SmartScreen's reputation warning. [SIGNING.md](SIGNING.md) describes the external certificate requirement and the Windows script that signs and verifies the app, installer and uninstaller. Do not treat a normal unsigned CI build as a signed release.
+
+## Voidstrap-style menu and settings (0.2.0)
+
+Use the sidebar to switch sections; Ctrl+K focuses navigation search. Startup has Fluent and Classic layouts, based on Voidstrap under MIT, showing actual initialization stages. Settings configure splash, rendering, scale, editor appearance, launch confirmation/behavior and client priority. Integrations adds local process tracking and shortcut creation; Maintenance safely cleans old logs. Upstream Settings searches 501 property declarations from all three projects and imports the supported subset. Unsupported integrations are explicitly labeled. See [SETTINGS-COMPATIBILITY.md](SETTINGS-COMPATIBILITY.md) for the complete scope, provenance and limitations.

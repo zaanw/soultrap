@@ -1,0 +1,3509 @@
+[
+  {
+    "Project": "Bloxstrap",
+    "Name": "BootstrapperStyle",
+    "Type": "BootstrapperStyle",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "BootstrapperIcon",
+    "Type": "BootstrapperIcon",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "BootstrapperTitle",
+    "Type": "string",
+    "Status": "Adapted",
+    "Destination": "Launcher \u2192 Startup screen title"
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "BootstrapperIconCustomLocation",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "Theme",
+    "Type": "Theme",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "DeveloperMode",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "CheckForUpdates",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Launcher \u2192 Check updates"
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "ConfirmLaunches",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Roblox \u2192 Confirm launch"
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "Locale",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "UseFastFlagManager",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "WPFSoftwareRender",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Appearance \u2192 Software rendering"
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "EnableAnalytics",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "BackgroundUpdatesEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "DebugDisableVersionPackageCleanup",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "SelectedCustomTheme",
+    "Type": "string?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "WebEnvironment",
+    "Type": "WebEnvironment",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "EnableActivityTracking",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Integrations \u2192 Monitor Roblox process (local status only)"
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "UseDiscordRichPresence",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "HideRPCButtons",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "ShowAccountOnRichPresence",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "ShowServerDetails",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "CustomIntegrations",
+    "Type": "ObservableCollection<CustomIntegration>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Bloxstrap",
+    "Name": "UseDisableAppPatch",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "AllowCookieAccess",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "BootstrapperStyle",
+    "Type": "BootstrapperStyle",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "BootstrapperIcon",
+    "Type": "BootstrapperIcon",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "BootstrapperTitle",
+    "Type": "string",
+    "Status": "Adapted",
+    "Destination": "Launcher \u2192 Startup screen title"
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "BootstrapperIconCustomLocation",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "RobloxIcon",
+    "Type": "RobloxIcon",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "RobloxTitle",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "RobloxIconCustomLocation",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "Theme",
+    "Type": "Theme",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "DeveloperMode",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "UseAcrylicBackground",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "AcrylicBackgroundOpacity",
+    "Type": "byte",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "ForceLocalData",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "CheckForUpdates",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Launcher \u2192 Check updates"
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "ConfirmLaunches",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Roblox \u2192 Confirm launch"
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "EnableRobloxBackgroundApp",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "RobloxTheme",
+    "Type": "RobloxTheme",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "Locale",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "ForceRobloxLanguage",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "UseFastFlagManager",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "WPFSoftwareRender",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Appearance \u2192 Software rendering"
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "EnableAnalytics",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "StaticDirectory",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "Channel",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "RobloxDomain",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "ChannelChangeMode",
+    "Type": "ChannelChangeMode",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "DistributorType",
+    "Type": "DistributorType",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "SelectedCustomTheme",
+    "Type": "string?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "BackgroundUpdatesEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "DebugDisableVersionPackageCleanup",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "EnableBetterMatchmaking",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "EnableBetterMatchmakingRandomization",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "WebEnvironment",
+    "Type": "WebEnvironment",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "CleanerOptions",
+    "Type": "CleanerOptions",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "CleanerDirectories",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "EnableWindowManipulation",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "FakeBorderlessFullscreen",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "EnableActivityTracking",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Integrations \u2192 Monitor Roblox process (local status only)"
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "UseDiscordRichPresence",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "RichPresenceStatusDisplayType",
+    "Type": "DiscordRPCStatusDisplay",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "HideRPCButtons",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "ShowAccountOnRichPresence",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "ShowServerDetails",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "CustomIntegrations",
+    "Type": "ObservableCollection<CustomIntegration>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Fishstrap",
+    "Name": "UseDisableAppPatch",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "BootstrapperStyle",
+    "Type": "BootstrapperStyle",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "BootstrapperScale",
+    "Type": "BootstrapperScale",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "BootstrapperIcon",
+    "Type": "BootstrapperIcon",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "StudioBootstrapperIcon",
+    "Type": "BootstrapperIcon",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RiShadeEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RiShadeDepthModel",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RiShadePerformancePromptShown",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RiShadeOverlayShortcut",
+    "Type": "OverlayShortcut",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "StudioReShadeEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "AntiAliasingMethodIndex",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "MotionBlurStrengthIndex",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "MotionBlurCustomAmount",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FrameGenModeIndex",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FrameGenOverlayShow",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FrameGenResumeIndex",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FrameGenAutoElevate",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FrameGenUncap",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FpsUnlockerEnabled",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FrameGenSplitCompare",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FrameGenTargetFps",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LastSeenNewsKey",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CleanerOptions",
+    "Type": "CleanerOptions",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CleanerDirectories",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "OriginalNetworkMtuValues",
+    "Type": "Dictionary<string, uint>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "BootstrapperTitle",
+    "Type": "string",
+    "Status": "Adapted",
+    "Destination": "Launcher \u2192 Startup screen title"
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "BootstrapperIconCustomLocation",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RecentCustomIcons",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Theme2",
+    "Type": "Theme",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CustomAccentColor",
+    "Type": "string?",
+    "Status": "Adapted",
+    "Destination": "Appearance \u2192 Custom accent"
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ShortcutAppearances",
+    "Type": "Dictionary<string, Models.SettingTasks.ShortcutAppearance>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WindowBackdrop",
+    "Type": "BackdropType",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WindowBackdropResetVersion",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SelectedCustomTheme",
+    "Type": "string?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CheckForUpdates",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Launcher \u2192 Check updates"
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "AssetWarpPreloadFlagsOwned",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "AssetWarpPreloadFlagBackup",
+    "Type": "Dictionary<string, string?>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "BlockRobloxTelemetry",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SpotifySignedIn",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SpotifyMiniPlayer",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxTheme",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxMinimizeToTray",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxLaunchAtStartup",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "StudioPluginEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "PluginConsent",
+    "Type": "Dictionary<string, bool>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DuckRobloxAudioOnUnfocus",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EnableHeadsetLoudness",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxAudioOutputDevice",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxAudioEqualizer",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxAudioOutputPersisted",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SnapTapEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SnapTapMode",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SnapTapKeys",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ResetRobloxAudioOnNextLaunch",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Saturation",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Contrast",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ColorTemperature",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ColorBlindnessEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ColorBlindnessType",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ColorBlindnessSeverity",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ColorBlindnessSimulate",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "MultiAccount",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "MaxConcurrentDownloads",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "MaxDownloadSegments",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DownloadBufferKb",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DownloadPipelineVersion",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ConfirmLaunches",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Roblox \u2192 Confirm launch"
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CompressRobloxInstalls",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LaunchWithoutVoidstrap",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidstrapMatchmakerPresetUrl",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LaunchSelectionIndex",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LaunchDropdownOnRight",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SelectedCpuPriority",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "MaxCpuCores",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TotalLogicalCores",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TotalPhysicalCores",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "IsChannelEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "UpdateRoblox",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxUpdateDelivery",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ForceRobloxReinstall",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CustomFontScale",
+    "Type": "double",
+    "Status": "Adapted",
+    "Destination": "Appearance \u2192 Interface scale"
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CustomDeathSoundVolume",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EditorBackground",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EditorForeground",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EditorFontFamily",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EditorFontSize",
+    "Type": "double",
+    "Status": "Adapted",
+    "Destination": "Appearance \u2192 Editor font size"
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EditorWordWrap",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Appearance \u2192 Wrap editor lines"
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EditorLineNumbers",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EditorHighlightLine",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EditorBackgroundImage",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EditorBackgroundImageOpacity",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ModRollback",
+    "Type": "Dictionary<string, Dictionary<string, ModRollbackValue>>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FastFlagEditorAppearance",
+    "Type": "GridEditorAppearance",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "NvidiaEditorAppearance",
+    "Type": "GridEditorAppearance",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DisableCrash",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "UseCustomIcon",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CustomGameName",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "PriorityLimit",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SelectedStatus",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DisableSplashScreen",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Launcher \u2192 Show splash (inverse)"
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EnableAnalytics",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ShouldExportConfig",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ShouldExportLogs",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "UseFastFlagManager",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberAllowGamepadPermission",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberCloseOnLeave",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberDiscordRpcEnabled",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberDiscordRpcShowJoinButton",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberEnableGameMode",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberEnableHiDpi",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberEnableMobileHomeScreen",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberGraphicsOptimizationMode",
+    "Type": "SoberGraphicsOptimizationMode?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberServerLocationIndicatorEnabled",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberTouchMode",
+    "Type": "SoberTouchMode?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberUseConsoleExperience",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberUseLibsecret",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberTermsAccepted",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberUseOpenGl",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VinegarRenderer",
+    "Type": "VinegarRenderer?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VinegarEnableGameMode",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VinegarDiscordRpcEnabled",
+    "Type": "bool?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VinegarGpu",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VinegarVirtualDesktop",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VinegarLauncher",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VinegarForcedVersion",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VinegarChannel",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VinegarWineRoot",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VinegarApplyFastFlags",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WPFSoftwareRender",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Appearance \u2192 Software rendering"
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberSharpness",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberAutoFullscreen",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberPreferXWayland",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SoberLauncher",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LinuxPlayerRuntime",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LinuxStudioRuntime",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RosemarySwapInterval",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RosemaryDecorations",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RosemaryCommandKey",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RosemaryConfinePointer",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RosemaryPlainControlClick",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RosemaryForceOpenGl",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SmooothBARRyesirikikthxlucipook",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HasLaunchedGame",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "NotificationWindowShow",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "NotifyUpdates",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "NotifyRoblox",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "NotifyRecovery",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "NotifyErrors",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "NotifyGameJoins",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "BackgroundWindow",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "UsePlaceId",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClearFont",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WindowCornerStyle",
+    "Type": "WindowCornerStyle",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "UiCornerScale",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Fleasion",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RojoEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RojoProjectPath",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "PlaceId",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "OptimizeRoblox",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxEfficiencyMode",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxMemoryLimitEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxMemoryLimitMb",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ReduceMemoryOutOfFocus",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TasxOptimization",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "BackgroundUpdatesEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidNotify",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ShowServerDetailsUI",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EnableCustomStatusDisplay",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RenameClientToEuroTrucks2",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SnowWOWSOCOOLWpfSnowbtw",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClientPath",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Locale",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "BufferSizeKbte",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "BufferSizeKbtes",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SkyboxName",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FontName",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LastServerSave",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SkyBoxDataSending",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FFlagRPCDisplayer",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CurrentTimeDisplay",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClockOverlayResetVersion",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClockTimeZoneId",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Clock24Hour",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ExclusiveFullscreen",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Crosshair",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CrosshairShortcutEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CrosshairShortcut",
+    "Type": "OverlayShortcut",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CrosshairShapeIndex",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CrosshairImagePath",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CrosshairColorHex",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CrosshairOutlineColorHex",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CrosshairSize",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CrosshairLineThickness",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CrosshairGap",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CrosshairOpacity",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "GameWIP",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DarkTextures",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "EnableActivityTracking",
+    "Type": "bool",
+    "Status": "Adapted",
+    "Destination": "Integrations \u2192 Monitor Roblox process (local status only)"
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "OverClockCPU",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ExitOnDissy",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ServerUptimeBetterBLOXcuzitsbetterXD",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DownloadingStringFormat",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ConnectCloset",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LinuxRenderBackend",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "GameIconChecked",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ServerLocationGame",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "GameNameChecked",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "GameCreatorChecked",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "GameStatusChecked",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "UseDiscordRichPresence",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HideRPCButtons",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ShowAccountOnRichPresence",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ShowServerDetails",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClassicTopBarEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "MacVirtualDisplayEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClassicTopBarHideAllCoreGui",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SessionDockEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "NotificationAppearance",
+    "Type": "NotificationAppearance",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "OverlayLayout",
+    "Type": "OverlayLayoutSettings",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SessionDockShortcut",
+    "Type": "OverlayShortcut",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperMode",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperRecordOnGameStart",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperRedBorder",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperShortcut",
+    "Type": "OverlayShortcut",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperBufferSeconds",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperResolutionHeight",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperFps",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperQuality",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperCodec",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperGameAudio",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperMicrophone",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperCaptureCursor",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperShowIndicator",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidEditAskForRecordings",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClipperOutputFolder",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesOverlayEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesShowKeys",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesShowMouseButtons",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesShowSpaceAndShift",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesShowCps",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesKeyboardSound",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesKeyboardSoundPack",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesKeyboardCustomWav",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesKeyboardVolume",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesMouseSound",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesMouseSoundPack",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesMouseCustomWav",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "KeystrokesMouseVolume",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SelectedCustomKeystrokeTheme",
+    "Type": "string?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ServerDetailsInOverlay",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "NotifyFriends",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "NotifyBadges",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "NotifyShortcutEveryGame",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Ps4ButtonsEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ModPacksNoticeShown",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HomepageBackgroundOverlayEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HomepageBackgroundOverlayColor",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HomepageBackgroundOverlayMediaPath",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HomepageBackgroundOverlayGradientEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HomepageBackgroundOverlayGradientColor",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HomepageBackgroundOverlayGradientAngle",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HomepageBackgroundOverlayMode",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CustomFontLocation",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CursorType",
+    "Type": "CursorType",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HasSelectedCursorType",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CustomIntegrations",
+    "Type": "ObservableCollection<CustomIntegration>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "UseDisableAppPatch",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Channel",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ChannelHash",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "PreferredMirror",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "AllowPreReleaseUpdates",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LaunchGameID",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "IsGameEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "MatchUniverseId",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TargetUniverseId",
+    "Type": "long?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "IsBetterServersEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "OverClockGPU",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "GRADmentFR",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidRPC",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "InGameResolution",
+    "Type": "ResolutionSetting?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "AppFontPath",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "AutoTranslate",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "AutoTranslateLanguage",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "BrandName",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DiscordRpcLanguage",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CycleTitleWithGameName",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "UseGameIconForRobloxWindow",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DMMouseLeft",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DMMouseMiddle",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DMMouseRight",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DMMouseSensitivity",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DMMouseX1",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DMMouseX2",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DMScrollDown",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DMScrollUp",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DoubleMovementControllerType",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DoubleMovementCurve",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DoubleMovementEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DoubleMovementForwardAngle",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DoubleMovementKeybinds",
+    "Type": "List<Voidstrap.Models.DMKeybind>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DoubleMovementSensitivity",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DoubleMovementSocdMode",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "DoubleMovementStrafeAngle",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FakeBorderlessFullscreen",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FakeExclusiveFullscreen",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "PerGamePreferredDatacenters",
+    "Type": "Dictionary<long, string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FavoriteGamePlaceIds",
+    "Type": "List<long>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FavoriteStudioUniverseIds",
+    "Type": "List<long>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "MatchmakerAskBeforeMoving",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "MatchmakerExcludedPlaceIds",
+    "Type": "List<long>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxIcon",
+    "Type": "BootstrapperIcon",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxIconCustomLocation",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxWindowIconOverrides",
+    "Type": "List<Voidstrap.Models.RobloxWindowIconOverride>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxTitle",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RobloxWindowBackdropType",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RpcAutoTranslate",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RpcIdleIcon",
+    "Type": "string?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ServerMatchmakerMaxRetries",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ShowServerInfoInTitle",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ServerInfoInTitleResetVersion",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "StudioRpcClientId",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "StudioRpcShowPlace",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "StudioRpcShowScript",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "StudioRpcShowState",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SidebarWidth",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SidebarNames",
+    "Type": "Dictionary<string, string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SidebarIcons",
+    "Type": "Dictionary<string, string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SidebarIconImages",
+    "Type": "Dictionary<string, string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SidebarOrder",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "SidebarHiddenItems",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LibrarySidebarWidth",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "PrivateServersSidebarWidth",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "AccountsSidebarWidth",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ColorPickerRecent",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HomeSectionOrder",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HomeStudioSectionOrder",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "HomeHiddenSections",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ColorPickerSaved",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "UiZoomPercent",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidstrapMatchmakerAutoCandidates",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidstrapMatchmakerDisabledDatacenters",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidstrapMatchmakerEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidstrapMatchmakerKickDatacenters",
+    "Type": "List<string>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidstrapMatchmakerLearningGamesPlayed",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidstrapMatchmakerMaxCandidates",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidstrapMatchmakerPreferEmpty",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidstrapMatchmakerPreferredDatacenter",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidstrapMatchmakerRejoinDisabledDatacenters",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VoidstrapMatchmakerGamejoinApiVersion",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebAccurateContinue",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "PlayerInstallLocation",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "VngInstallLocation",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "UseVng",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "StudioInstallLocation",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "StaticDirectory",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClassicInstallLocation",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClassicSourceLocation",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClassicDownloadBaseUrl",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClassicSelectedMap",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LaunchSelectedClient",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ClassicCommunityContent",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebAvatarBorder",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebBannedUserViewer",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebBulkLeaveGroups",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebCategorizeWearing",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebCurrentlyPlayingLink",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ModApplyTarget",
+    "Type": "Voidstrap.Enums.ModApplyTarget",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FastFlagApplyTarget",
+    "Type": "Voidstrap.Enums.ModApplyTarget",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebCustomBackgroundBlur",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebCustomBackgroundEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebCustomBackgroundOpacity",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebCustomBackgroundPath",
+    "Type": "string?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebCustomBackgrounds",
+    "Type": "ObservableCollection<Voidstrap.Models.CustomBackground>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebViewDevTools",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebDevProductsTab",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebEventsTimeline",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebFavoriteFriends",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebFriendRequestActions",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebGamepassViewer",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebGroupGameViewer",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebGroupMembersScanner",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebHiddenBadges",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebHiddenGamesViewer",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebInstantJoiner",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebItemSales",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebItemTrading",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebLastPlayedTogether",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebMutualFriends",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebOutfitViewer",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebPendingRobux",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebPriceFloor",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebPrivateGames",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebProfileRap",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebProfileViews",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebQuickPlay",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebSearchSuggestions",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebServerList",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebSubplacesTab",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebTradingEnhancer",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebTransactionHistory",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebUsernameColor",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "WebViewDevMode",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureParticleStyle",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureParticleOpacity",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureStudStyle",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureStudShade",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureTerrainEnabled",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureTerrainSize",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureTerrainRepeat",
+    "Type": "double",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureWaterStyle",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureWaterStrength",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureWaterSpeed",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureWaterFrame",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "TextureWaterGlitch",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LibraryPins",
+    "Type": "List<LibraryPin>",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "LibraryShowRobloxFavorites",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "FavoriteUpdateAlerts",
+    "Type": "bool",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "PlaceId",
+    "Type": "long",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "UniverseId",
+    "Type": "long",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Name",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "CreatorName",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Description",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "IconUrl",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "ThumbnailUrl",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Visits",
+    "Type": "long",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "MaxPlayers",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Genre",
+    "Type": "string",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Created",
+    "Type": "DateTime?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Updated",
+    "Type": "DateTime?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Width",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Height",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "RefreshRate",
+    "Type": "int",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  },
+  {
+    "Project": "Voidstrap",
+    "Name": "Monitor",
+    "Type": "string?",
+    "Status": "Not implemented",
+    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+  }
+]

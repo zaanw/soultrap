@@ -24,6 +24,24 @@ public sealed class MainViewModel : Observable
         Action=new AsyncCommand(ExecuteAsync,()=>!Busy);
         selectedCursor=Catalog.Cursors[0];presetJson=Serialize(Catalog.BuiltInPresets().First());
     }
+    public event Action<string>? LaunchCompleted;
+    public string[] SplashStyles => ["Fluent", "Classic"];
+    public string[] AfterLaunchOptions => ["Keep open", "Minimize", "Close"];
+    public string[] ProcessPriorities => ["Normal", "AboveNormal", "BelowNormal"];
+    private string startupStatus = "Loading preferences";
+    public string StartupStatus { get => startupStatus; private set => Set(ref startupStatus,value); }
+    private double startupProgress;
+    public double StartupProgress { get => startupProgress; private set => Set(ref startupProgress,value); }
+    public string RobloxStatus => Config.TrackRobloxProcess ? (roblox.IsRunning ? "Roblox is running" : "Roblox is stopped") : "Process monitoring disabled";
+    public void RefreshProcessStatus() { Changed(nameof(RobloxStatus)); Changed(nameof(ClientDetails)); }
+    private List<UpstreamSetting> upstreamSettings = [];
+    public string[] UpstreamProjects => ["All projects", "Bloxstrap", "Fishstrap", "Voidstrap"];
+    private string upstreamSearch = "", upstreamProject = "All projects";
+    public string UpstreamSearch { get => upstreamSearch; set { Set(ref upstreamSearch,value); Changed(nameof(VisibleUpstreamSettings)); Changed(nameof(UpstreamSummary)); } }
+    public string UpstreamProject { get => upstreamProject; set { Set(ref upstreamProject,value); Changed(nameof(VisibleUpstreamSettings)); Changed(nameof(UpstreamSummary)); } }
+    public IEnumerable<UpstreamSetting> VisibleUpstreamSettings => upstreamSettings.Where(p => (UpstreamProject == "All projects" || p.Project == UpstreamProject) && (p.Name.Contains(UpstreamSearch,StringComparison.OrdinalIgnoreCase) || p.Destination.Contains(UpstreamSearch,StringComparison.OrdinalIgnoreCase)));
+    public string UpstreamSummary => $"{VisibleUpstreamSettings.Count()} of {upstreamSettings.Count} upstream properties · adapted options have working Soultrap behavior.";
+    public void PrepareStartup(Settings value) => Config=value;
     public AsyncCommand Action {get;}
     private bool busy;
     public bool Busy {get=>busy;private set{Set(ref busy,value);Changed(nameof(Idle));Action.Refresh();}}
@@ -44,7 +62,7 @@ public sealed class MainViewModel : Observable
     public ObservableCollection<ClientInstallation> Clients {get;}=[];
     private ClientInstallation? selectedClient;
     public ClientInstallation? SelectedClient {get=>selectedClient;set{Set(ref selectedClient,value);Changed(nameof(ClientDetails));Changed(nameof(Compatibility));}}
-    public string ClientDetails=>SelectedClient is {} c?$"Status: {(roblox.IsRunning?"running":"stopped")}\nVersion: {c.Version}\nPath: {c.Root}\nLast launch requested: {Config.LastLaunch?.ToLocalTime().ToString("g")??"never"}\nClient updates: managed by official Roblox installer; online version comparison unavailable.":"Roblox not detected. Install the official Win32 client or choose its version directory in Settings. Store/MSIX clients are not supported.";
+    public string ClientDetails=>SelectedClient is {} c?$"Status: {(Config.TrackRobloxProcess ? (roblox.IsRunning?"running":"stopped") : "not monitored")}\nVersion: {c.Version}\nPath: {c.Root}\nLast launch requested: {Config.LastLaunch?.ToLocalTime().ToString("g")??"never"}\nClient updates: managed by official Roblox installer; online version comparison unavailable.":"Roblox not detected. Install the official Win32 client or choose its version directory in Settings. Store/MSIX clients are not supported.";
     public string Compatibility
     {
         get {try{return SelectedClient is {} c?CustomizationEngine.Check(c).Reason:"No client selected.";}catch(Exception e){return e.Message;}}
@@ -86,16 +104,23 @@ public sealed class MainViewModel : Observable
     {var dialog=new SaveFileDialog{Filter=filter,FileName=name};return dialog.ShowDialog()==true?dialog.FileName:null;}
     private static void Folder(string path)
     {if(!Directory.Exists(path))throw new DirectoryNotFoundException(path);System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(path){UseShellExecute=true});}
-    public async Task InitializeAsync()
+    public async Task InitializeAsync(bool checkUpdates = true)
     {
         await Guard("Initialize",async()=>
         {
             try{Config=await storage.LoadSettingsAsync();}
             catch(Exception e)when(e is JsonException or InvalidDataException)
             {File.Copy(storage.SettingsFile,storage.SettingsFile+".corrupt."+Guid.NewGuid().ToString("N"));LastError="Configuration is corrupt. Original preserved at settings.json and a dated .corrupt copy; defaults loaded for this session. "+e.Message;log.Write("warning","config",LastError);}
-            ThemesApply();await RefreshAsync();await ReloadPresetsAsync();await RefreshBackupsAsync();RefreshCursorPreview();
+            StartupProgress=20; StartupStatus="Applying appearance"; ThemesApply();
+            StartupProgress=35; StartupStatus="Finding Roblox installations"; await RefreshAsync();
+            StartupProgress=60; StartupStatus="Loading presets"; await ReloadPresetsAsync();
+            StartupProgress=75; StartupStatus="Reading backup journals"; await RefreshBackupsAsync();
+            StartupProgress=90; StartupStatus="Loading compatibility catalog";
+            upstreamSettings=await JsonFiles.ReadAsync<List<UpstreamSetting>>(Path.Combine(AppContext.BaseDirectory,"Assets","UpstreamSettings.json"));
+            Changed(nameof(VisibleUpstreamSettings)); Changed(nameof(UpstreamSummary));
+            RefreshCursorPreview(); StartupProgress=100; StartupStatus="Ready";
         });
-        if(Config.CheckUpdates)await ExecuteAsync("Updates");
+        if(checkUpdates && Config.CheckUpdates)await ExecuteAsync("Updates");
     }
     private void ThemesApply()=>Soultrap.App.Themes.Apply(Config);
     private async Task RefreshAsync()
@@ -163,10 +188,35 @@ public sealed class MainViewModel : Observable
         switch(op)
         {
             case "Refresh":await RefreshAsync();break;
-            case "Play":await Task.Run(()=>roblox.Launch(Client()));Config.LastLaunch=DateTimeOffset.UtcNow;await storage.SaveSettingsAsync(Config with{LaunchUri="roblox-player:"});Changed(nameof(ClientDetails));Status="Roblox launch requested; process creation succeeded.";break;
-            case "LaunchUri":Config.Validate();roblox.LaunchUri(Config.LaunchUri);Status="Launch URI passed to Windows.";break;
+            case "Play":
+                if(Config.ConfirmLaunches && MessageBox.Show("Launch the selected Roblox client?","Launch Roblox",MessageBoxButton.YesNo)!=MessageBoxResult.Yes) { Status="Cancelled."; break; }
+                Config.Validate(); var launchWarning=await Task.Run(()=>roblox.Launch(Client(),Config.ProcessPriority));
+                Config.LastLaunch=DateTimeOffset.UtcNow; await storage.SaveSettingsAsync(Config with{LaunchUri="roblox-player:"});
+                Changed(nameof(ClientDetails)); Status="Roblox launch requested; process creation succeeded." + (launchWarning is null ? "" : " " + launchWarning);
+                LaunchCompleted?.Invoke(Config.AfterLaunch); break;
+            case "LaunchUri":Config.Validate();
+                if(Config.ConfirmLaunches && MessageBox.Show("Pass this launch URI to the registered Roblox handler?","Launch Roblox",MessageBoxButton.YesNo)!=MessageBoxResult.Yes) { Status="Cancelled."; break; }
+                roblox.LaunchUri(Config.LaunchUri);Status="Launch URI passed to Windows. Process priority is only applied to direct launches.";LaunchCompleted?.Invoke(Config.AfterLaunch);break;
             case "RobloxDownload":RobloxService.OpenOfficialDownload();Status="Official Roblox download page opened. Run its installer to install or update the client.";break;
             case "ClientFolder":Folder(Client().Root);break;
+            case "ImportUpstream":
+                if(Open("Launcher settings JSON|*.json") is {} upstreamFile)
+                {
+                    var document=await JsonFiles.ReadAsync<JsonElement>(upstreamFile);
+                    var imported=LauncherSettingsImport.Import(document,Config);
+                    Config=imported.Value; await SaveSettingsAsync();
+                    Status=$"Imported {imported.Imported} supported settings; {imported.Unmapped.Length} unmapped properties were not applied.";
+                    DiagnosticText="Unmapped upstream properties:\n"+string.Join("\n",imported.Unmapped);
+                } else Status="Cancelled."; break;
+            case "DesktopShortcut":CreateShortcut(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));break;
+            case "StartMenuShortcut":CreateShortcut(Environment.GetFolderPath(Environment.SpecialFolder.Programs));break;
+            case "RobloxLogs":Folder(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"Roblox","logs"));break;
+            case "BackupsFolder":Directory.CreateDirectory(storage.BackupsDirectory);Folder(storage.BackupsDirectory);break;
+            case "CleanLogs":
+                Config.Validate(); if(roblox.IsRunning)throw new IOException("Close Roblox before cleaning logs.");
+                if(MessageBox.Show($"Delete log files older than {Config.LogRetentionDays} days from Soultrap and Roblox log folders?","Clean old logs",MessageBoxButton.YesNo)!=MessageBoxResult.Yes) { Status="Cancelled."; break; }
+                var cleaned=await LogMaintenance.CleanAsync([Path.Combine(storage.Root,"logs"),Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"Roblox","logs")],Config.LogRetentionDays);
+                Status=$"Deleted {cleaned.Deleted} old log files ({cleaned.Bytes:N0} bytes); skipped {cleaned.Skipped} locked/inaccessible files.";break;
             case "DataFolder":Directory.CreateDirectory(storage.Root);Folder(storage.Root);break;
             case "Logs":log.Write("info","logs","Opening log directory.");Folder(Path.GetDirectoryName(log.PathName)!);break;
             case "ValidateClient":
@@ -199,17 +249,36 @@ public sealed class MainViewModel : Observable
             case "InspectMod":if(Open("Soultrap mod ZIP|*.zip") is {} modFile){mod=await ModPackages.ReadAsync(modFile,Client().Version);foreach(var bytes in mod.Files.Values)CursorStudio.Load(bytes);ModDetails=Serialize(mod.Manifest);Status="Package validated for this client version. Not installed yet.";}else Status="Cancelled.";break;
             case "ApplyMod":if(mod is null)throw new InvalidOperationException("Inspect a package first.");if(mod.Manifest.RequiredVersion!=Client().Version)throw new InvalidOperationException("Client changed; inspect package again.");await engine.ApplyAsync(Client(),mod.Files,mod.Manifest.Name);await RefreshBackupsAsync();Status="Mod files applied and verified. In-game effect unverified.";break;
             case "RemoveMod":mod=null;ModDetails="Package removed from memory. Installed files are retained; use Disable or restore its backup to remove changes.";break;
-            case "Diagnostics":await RefreshAsync();DiagnosticText=$"Soultrap 0.1.0\nOS: {Environment.OSVersion}\nRuntime: {Environment.Version}\nData: {storage.Root}\n{ClientDetails}\n{Compatibility}\nFastFlags: {FlagPolicy.Status}\nWindows GUI/Roblox visual effects require manual validation.";if(Config.Experiments.GetValueOrDefault("Enable verbose diagnostic notes"))DiagnosticText+=$"\nVerbose: CPU count={Environment.ProcessorCount}; 64-bit process={Environment.Is64BitProcess}; managed memory={GC.GetTotalMemory(false)} bytes";await RefreshBackupsAsync();break;
+            case "Diagnostics":await RefreshAsync();DiagnosticText=$"Soultrap 0.2.0\nOS: {Environment.OSVersion}\nRuntime: {Environment.Version}\nData: {storage.Root}\n{ClientDetails}\n{Compatibility}\nFastFlags: {FlagPolicy.Status}\nWindows GUI/Roblox visual effects require manual validation.";if(Config.Experiments.GetValueOrDefault("Enable verbose diagnostic notes"))DiagnosticText+=$"\nVerbose: CPU count={Environment.ProcessorCount}; 64-bit process={Environment.Is64BitProcess}; managed memory={GC.GetTotalMemory(false)} bytes";await RefreshBackupsAsync();break;
             case "SaveSettings":await SaveSettingsAsync();break;
             case "ResetSettings":Config=new Settings();await SaveSettingsAsync();break;
             case "ImportSettings":if(Open("JSON|*.json") is {} settingsFile){var imported=await JsonFiles.ReadAsync<Settings>(settingsFile);imported.Validate();Config=imported;await SaveSettingsAsync();}else Status="Cancelled.";break;
             case "ExportSettings":Config.Validate();if(Save("JSON|*.json","soultrap-settings.json") is {} settingsOut)await JsonFiles.WriteAsync(settingsOut,Config with{LaunchUri="roblox-player:"});else Status="Cancelled.";break;
-            case "Updates":release=await updates.CheckAsync();UpdateText=$"{release.Tag} · {(UpdateService.IsNewer(release.Tag,new Version(0,1,0))?"New release available":"Up to date")}\n{release.Notes}\nAuthenticity: no Soultrap publisher certificate is pinned; installation is manual.";break;
+            case "Updates":release=await updates.CheckAsync();UpdateText=$"{release.Tag} · {(UpdateService.IsNewer(release.Tag,new Version(0,2,0))?"New release available":"Up to date")}\n{release.Notes}\nAuthenticity: no Soultrap publisher certificate is pinned; installation is manual.";break;
             case "DownloadUpdate":
                 if(release is null)throw new InvalidOperationException("Check releases first.");var asset=release.Assets.FirstOrDefault(a=>a.Name.EndsWith("-win-x64.zip",StringComparison.OrdinalIgnoreCase))??throw new InvalidOperationException("Release has no x64 portable ZIP.");
                 if(Save("ZIP|*.zip",Path.GetFileName(asset.Name)) is {} destination){await updates.DownloadAsync(asset,destination);Status="Archive downloaded and SHA-256 verified against GitHub metadata. Publisher authenticity is not pinned; nothing was executed.";}else Status="Cancelled.";break;
             case "Owner":OwnerAuthentication.Authenticate(storage.Root,new WindowInteropHelper(Application.Current.MainWindow).Handle);new OwnerWindow(this){Owner=Application.Current.MainWindow}.ShowDialog();break;
             default:throw new InvalidOperationException("Unknown action.");
+        }
+    }
+    private static void CreateShortcut(string folder)
+    {
+        var exe=Environment.ProcessPath??throw new InvalidOperationException("Executable location unavailable.");
+        if(!Path.GetFileName(exe).Equals("Soultrap.exe",StringComparison.OrdinalIgnoreCase))throw new InvalidOperationException("Shortcuts require the published Soultrap.exe.");
+        Directory.CreateDirectory(folder);var path=Path.Combine(folder,"Soultrap.lnk");
+        if(File.Exists(path))throw new IOException("A Soultrap shortcut already exists; it was preserved.");
+        var type=Type.GetTypeFromProgID("WScript.Shell")??throw new InvalidOperationException("Windows shortcut service unavailable.");
+        dynamic shell=Activator.CreateInstance(type)!; object? shortcutObject=null;
+        try
+        {
+            dynamic shortcut=shell.CreateShortcut(path);shortcutObject=shortcut;
+            shortcut.TargetPath=exe;shortcut.WorkingDirectory=Path.GetDirectoryName(exe);shortcut.IconLocation=exe+",0";shortcut.Description="Soultrap Roblox customization";shortcut.Save();
+        }
+        finally
+        {
+            if(shortcutObject is not null)System.Runtime.InteropServices.Marshal.FinalReleaseComObject(shortcutObject);
+            System.Runtime.InteropServices.Marshal.FinalReleaseComObject(shell);
         }
     }
     private void RenderCursor()
@@ -226,6 +295,6 @@ public sealed class MainViewModel : Observable
             if(!Path.GetFileName(path).Equals("Soultrap.exe",StringComparison.OrdinalIgnoreCase))throw new InvalidOperationException("Autostart requires the published Soultrap.exe.");
             key.SetValue("Soultrap",$"\"{path}\"");
         }else key.DeleteValue("Soultrap",false);
-        await storage.SaveSettingsAsync(Config with{LaunchUri="roblox-player:"});ThemesApply();await RefreshAsync();
+        await storage.SaveSettingsAsync(Config with{LaunchUri="roblox-player:"});Changed(nameof(Config));Changed(nameof(RobloxStatus));ThemesApply();await RefreshAsync();
     }
 }

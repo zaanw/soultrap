@@ -8,7 +8,7 @@ public sealed class UpdateService(HttpClient http)
     public async Task<ReleaseInfo> CheckAsync(CancellationToken ct = default)
     {
         using var req = new HttpRequestMessage(HttpMethod.Get, "https://api.github.com/repos/zaanw/soultrap/releases/latest");
-        req.Headers.UserAgent.ParseAdd("Soultrap/0.1.0");
+        req.Headers.UserAgent.ParseAdd("Soultrap/0.2.0");
         using var response = await http.SendAsync(req, ct);
         if (response.StatusCode == System.Net.HttpStatusCode.NotFound) throw new InvalidOperationException("No published Soultrap release is available.");
         response.EnsureSuccessStatusCode();

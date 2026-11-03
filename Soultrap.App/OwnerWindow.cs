@@ -19,9 +19,9 @@ public sealed class OwnerWindow : Window
         Add("Feature Flags",new TextBlock{Text="Feature switches are managed in Experimental Features. Save in Settings. Roblox FastFlags are never enabled by owner status.",Margin=new Thickness(12)});
         var studio=new StackPanel();studio.Children.Add(new TextBlock{Text="Cursor Studio, Preset Builder and Theme Studio use the same validated editors in the main window. Select an editor to close this console and focus that tab."});
         foreach(var (label,index) in new[]{("Cursor Studio",3),("Preset Builder",5),("Theme Studio",8)})
-        {var button=new Button{Content=label};button.Click+=(_,_)=>{Close();if(Application.Current.MainWindow.Content is DockPanel panel && panel.Children.OfType<TabControl>().FirstOrDefault() is {} mainTabs)mainTabs.SelectedIndex=index;};studio.Children.Add(button);}Add("Studios",studio);
+        {var button=new Button{Content=label};button.Click+=(_,_)=>{Close();if(Application.Current.MainWindow is MainWindow main)main.NavigateTo(index);};studio.Children.Add(button);}Add("Studios",studio);
         var inspector=new StackPanel();inspector.Children.Add(new TextBlock{Text=vm.ClientDetails+"\n"+vm.Compatibility});Add("Client Inspector",inspector);
-        var diagnostics=new StackPanel();var run=new Button{Content="Open Diagnostics"};run.Click+=(_,_)=>{Close();if(Application.Current.MainWindow.Content is DockPanel panel && panel.Children.OfType<TabControl>().FirstOrDefault() is {} mainTabs)mainTabs.SelectedIndex=7;};diagnostics.Children.Add(run);Add("Diagnostics",diagnostics);
+        var diagnostics=new StackPanel();var run=new Button{Content="Open Diagnostics"};run.Click+=(_,_)=>{Close();if(Application.Current.MainWindow is MainWindow main)main.NavigateTo(7);};diagnostics.Children.Add(run);Add("Diagnostics",diagnostics);
         void Add(string header,UIElement element)=>tabs.Items.Add(new TabItem{Header=header,Content=element});
     }
 }

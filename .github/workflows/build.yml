@@ -28,18 +28,20 @@ jobs:
       - name: Open WPF window and every tab (binding regression check)
         shell: pwsh
         run: |
-          $app = Start-Process -FilePath .\Soultrap.App\bin\Release\net8.0-windows\Soultrap.exe -ArgumentList '--smoke-test' -PassThru
-          if (!$app.WaitForExit(30000)) { $app.Kill(); throw 'WPF smoke test timed out.' }
-          if ($app.ExitCode -ne 0) {
-            $report = Join-Path $env:TEMP 'Soultrap-smoke-errors.txt'
-            if (Test-Path $report) { Get-Content $report }
-            throw "WPF startup/tab smoke test failed: $($app.ExitCode)"
+          foreach ($arguments in @('--smoke-test', '--smoke-test --no-splash', '--smoke-test --classic-splash')) {
+            $app = Start-Process -FilePath .\Soultrap.App\bin\Release\net8.0-windows\Soultrap.exe -ArgumentList $arguments -PassThru
+            if (!$app.WaitForExit(30000)) { $app.Kill(); throw 'WPF smoke test timed out.' }
+            if ($app.ExitCode -ne 0) {
+              $report = Join-Path $env:TEMP 'Soultrap-smoke-errors.txt'
+              if (Test-Path $report) { Get-Content $report }
+              throw "WPF startup/tab smoke test failed: $($app.ExitCode)"
+            }
           }
       - run: dotnet publish Soultrap.App -c Release -r win-x64 --self-contained true -p:PublishSingleFile=false -o artifacts/publish
       - name: Package portable build and installer
         shell: pwsh
         run: |
-          Compress-Archive -Path artifacts/publish/* -DestinationPath artifacts/Soultrap-0.1.0-win-x64.zip
+          Compress-Archive -Path artifacts/publish/* -DestinationPath artifacts/Soultrap-0.2.0-win-x64.zip
           $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
           if (!(Test-Path $compiler)) { throw 'Inno Setup 6 is required on this Windows runner.' }
           & $compiler /DPublishDir="$pwd\artifacts\publish" Soultrap.Installer/Soultrap.iss
@@ -53,6 +55,7 @@ jobs:
             artifacts/*.zip
             artifacts/SHA256SUMS.txt
             artifacts/installer/*.exe
+            artifacts/screenshots/*.png
           if-no-files-found: error
       - uses: actions/upload-artifact@v4
         if: always()
@@ -84,8 +87,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if gh release view v0.1.0 >/dev/null 2>&1; then
-            echo 'Existing v0.1.0 release retained. New files remain in workflow artifacts.'
+          if gh release view v0.2.0 >/dev/null 2>&1; then
+            echo 'Existing v0.2.0 release retained. New files remain in workflow artifacts.'
           else
-            gh release create v0.1.0 $(find release-files -type f) --target "$GITHUB_SHA" --draft --prerelease --title 'Soultrap 0.1.0 — Windows validation pending' --notes-file CHANGELOG.md
+            gh release create v0.2.0 $(find release-files -type f) --target "$GITHUB_SHA" --draft --prerelease --title 'Soultrap 0.2.0 — Windows validation pending' --notes-file CHANGELOG.md
           fi

@@ -1,4 +1,4 @@
-#define AppVersion "0.1.0"
+#define AppVersion "0.2.0"
 #ifndef PublishDir
 #define PublishDir "..\artifacts\publish"
 #endif
@@ -14,7 +14,7 @@ ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 MinVersion=10.0.22000
 OutputDir=..\artifacts\installer
-OutputBaseFilename=Soultrap-0.1.0-Setup-x64
+OutputBaseFilename=Soultrap-0.2.0-Setup-x64
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=classic

@@ -1,6 +1,6 @@
 # Third-party notices
 
-Soultrap source and bundled geometric artwork: MIT, see LICENSE. No source or artwork was copied from Bloxstrap, Fishstrap, Voidstrap or Roblox.
+Soultrap source and bundled geometric artwork: MIT, see LICENSE. The 0.2.0 startup layouts adapt MIT-licensed Voidstrap FluentDialog / ClassicFluentDialog XAML; upstream notices for Voidstrap (© 2026 Bratic), Bloxstrap (© 2022 pizzaboxer) and Fishstrap (© 2025 returnrqt) are preserved in legal/. See SETTINGS-COMPATIBILITY.md. Upstream logos, cursor artwork, fonts and Roblox assets are not bundled.
 
 NuGet dependencies retain their own licenses:
 

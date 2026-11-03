@@ -25,13 +25,27 @@ public sealed class RobloxService
         }
         return found.DistinctBy(c => c.Root).OrderByDescending(c => c.LastWrite).ToList();
     });
-    public bool IsRunning => OperatingSystem.IsWindows() && Process.GetProcessesByName("RobloxPlayerBeta").Any();
-    public void Launch(ClientInstallation client)
+    public bool IsRunning
     {
+        get
+        {
+            if (!OperatingSystem.IsWindows()) return false;
+            var processes = Process.GetProcessesByName("RobloxPlayerBeta");
+            try { return processes.Length > 0; }
+            finally { foreach (var process in processes) process.Dispose(); }
+        }
+    }
+    public string? Launch(ClientInstallation client, string priority = "Normal")
+    {
+        if (!new[] { "Normal", "AboveNormal", "BelowNormal" }.Contains(priority)) throw new InvalidDataException("Unsupported priority.");
         var exe = SafePaths.Resolve(client.Root, "RobloxPlayerBeta.exe");
         Authenticode.VerifyRoblox(exe);
-        _ = Process.Start(new ProcessStartInfo(exe) { UseShellExecute = false, WorkingDirectory = client.Root, ArgumentList = { "--app" } })
+        using var process = Process.Start(new ProcessStartInfo(exe) { UseShellExecute = false, WorkingDirectory = client.Root, ArgumentList = { "--app" } })
             ?? throw new IOException("Windows did not start Roblox.");
+        if (priority == "Normal") return null;
+        try { process.PriorityClass = priority switch { "AboveNormal" => ProcessPriorityClass.AboveNormal, "BelowNormal" => ProcessPriorityClass.BelowNormal, _ => throw new InvalidDataException("Unsupported priority.") }; return null; }
+        catch (Exception e) when (e is System.ComponentModel.Win32Exception or InvalidOperationException)
+        { return "Client started, but Windows could not set process priority: " + e.Message; }
     }
     public void LaunchUri(string uri)
     {

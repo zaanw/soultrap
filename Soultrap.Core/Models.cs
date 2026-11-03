@@ -24,7 +24,7 @@ public sealed record Settings
 {
     public int Schema { get; init; } = 1;
     public string Language { get; set; } = "English";
-    public string Theme { get; set; } = "Aero Blue";
+    public string Theme { get; set; } = "Void Dark";
     public string CustomAccent { get; set; } = "#267AC4";
     public double Opacity { get; set; } = 1;
     public bool Animations { get; set; } = true;
@@ -32,6 +32,20 @@ public sealed record Settings
     public bool CheckUpdates { get; set; } = true;
     public bool AutoStart { get; set; }
     public bool MinimizeToTray { get; set; }
+    public bool ShowSplashScreen { get; set; } = true;
+    public string SplashStyle { get; set; } = "Fluent";
+    public string SplashTitle { get; set; } = "SOULTRAP";
+    public bool ConfirmLaunches { get; set; } = true;
+    public string AfterLaunch { get; set; } = "Keep open";
+    public bool AlwaysOnTop { get; set; }
+    public bool SoftwareRendering { get; set; }
+    public double UiScale { get; set; } = 1;
+    public double SidebarWidth { get; set; } = 210;
+    public double EditorFontSize { get; set; } = 13;
+    public bool EditorWordWrap { get; set; }
+    public bool TrackRobloxProcess { get; set; } = true;
+    public string ProcessPriority { get; set; } = "Normal";
+    public int LogRetentionDays { get; set; } = 14;
     public string? RobloxPath { get; set; }
     public DateTimeOffset? LastLaunch { get; set; }
     public string LaunchUri { get; set; } = "roblox-player:";
@@ -40,6 +54,12 @@ public sealed record Settings
     {
         if (Schema != 1 || !Catalog.Themes.Contains(Theme) || !double.IsFinite(Opacity) || Opacity < .75 || Opacity > 1 || Experiments is null)
             throw new InvalidDataException("Invalid configuration (schema, theme or opacity).");
+        if (!new[] { "Fluent", "Classic" }.Contains(SplashStyle) || string.IsNullOrWhiteSpace(SplashTitle) || SplashTitle.Length > 60)
+            throw new InvalidDataException("Invalid startup screen style/title.");
+        if (!new[] { "Keep open", "Minimize", "Close" }.Contains(AfterLaunch) || !new[] { "Normal", "AboveNormal", "BelowNormal" }.Contains(ProcessPriority))
+            throw new InvalidDataException("Invalid launch behavior or process priority.");
+        if (!double.IsFinite(UiScale) || UiScale is < .85 or > 1.5 || !double.IsFinite(SidebarWidth) || SidebarWidth is < 180 or > 280 || !double.IsFinite(EditorFontSize) || EditorFontSize is < 10 or > 24 || LogRetentionDays is < 1 or > 365)
+            throw new InvalidDataException("Scale, sidebar, editor font or log retention is out of range.");
         if (Language != "English") throw new InvalidDataException("Only English interface is currently available.");
         if (!System.Text.RegularExpressions.Regex.IsMatch(CustomAccent, "^#[0-9a-fA-F]{6}$"))
             throw new InvalidDataException("Custom accent must be #RRGGBB.");
@@ -49,7 +69,7 @@ public sealed record Settings
 }
 public static class Catalog
 {
-    public static readonly string[] Themes = ["Aero Blue", "Aero Dark", "Classic Silver", "Retro Green", "Angelcore Glass", "Custom Theme"];
+    public static readonly string[] Themes = ["Void Dark", "Void Light", "Aero Blue", "Aero Dark", "Classic Silver", "Retro Green", "Angelcore Glass", "Custom Theme"];
     public static readonly string[] ClassicStyles = ["Classic 2013", "Classic 2016", "Classic 2018", "Classic 2019", "Modern"];
     public static readonly CursorPreset[] Cursors = [
         new("Roblox 2013", 2013, "Original rectangular crosshair inspired by early Roblox. Not an official asset.", "2013.png"),

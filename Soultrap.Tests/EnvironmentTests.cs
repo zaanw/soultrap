@@ -26,7 +26,7 @@ public sealed class EnvironmentTests : IDisposable
     private CustomizationEngine Engine=>new(Path.Combine(root,"backups"));
     [Fact] public async Task ConfigRoundTrip()
     {var expected=new Settings{Theme="Retro Green",Opacity=.85,AutoStart=true};await Storage.SaveSettingsAsync(expected);var actual=await Storage.LoadSettingsAsync();Assert.Equal(expected.Theme,actual.Theme);Assert.Equal(expected.Opacity,actual.Opacity);Assert.True(actual.AutoStart);}
-    [Fact] public async Task MissingConfigUsesDefaults()=>Assert.Equal("Aero Blue",(await Storage.LoadSettingsAsync()).Theme);
+    [Fact] public async Task MissingConfigUsesDefaults()=>Assert.Equal("Void Dark",(await Storage.LoadSettingsAsync()).Theme);
     [Fact] public async Task CorruptConfigIsPreserved()
     {Directory.CreateDirectory(Storage.Root);await File.WriteAllTextAsync(Storage.SettingsFile,"{");await Assert.ThrowsAsync<JsonException>(()=>Storage.LoadSettingsAsync());Assert.Equal("{",await File.ReadAllTextAsync(Storage.SettingsFile));}
     [Theory][InlineData(.1)][InlineData(1.1)][InlineData(double.NaN)] public async Task RejectInvalidOpacity(double opacity)=>await Assert.ThrowsAsync<InvalidDataException>(()=>Storage.SaveSettingsAsync(new Settings{Opacity=opacity}));
