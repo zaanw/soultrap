@@ -1,4 +1,4 @@
-#define AppVersion "0.2.1"
+#define AppVersion "0.3.0"
 #ifndef PublishDir
 #define PublishDir "..\artifacts\publish"
 #endif
@@ -14,11 +14,13 @@ ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 MinVersion=10.0.22000
 OutputDir=..\artifacts\installer
-OutputBaseFilename=Soultrap-0.2.1-Setup-x64
+OutputBaseFilename=Soultrap-0.3.0-Setup-x64
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=classic
 UninstallDisplayIcon={app}\Soultrap.exe
+CloseApplications=yes
+RestartApplications=no
 #ifdef SignedBuild
 SignTool=soultrap
 SignedUninstaller=yes
@@ -32,3 +34,12 @@ Name: "{group}\Uninstall Soultrap"; Filename: "{uninstallexe}"
 ; User settings and rollback backups are intentionally retained.
 [Registry]
 Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueName: "Soultrap"; Flags: uninsdeletevalue
+
+[Run]
+Filename: "{app}\Soultrap.exe"; Description: "Launch Soultrap"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\Soultrap.exe"; Flags: nowait; Check: IsSoultrapUpdate
+[Code]
+function IsSoultrapUpdate: Boolean;
+begin
+  Result := (ExpandConstant('{param:SOULTRAPUPDATE|0}') = '1') and WizardSilent;
+end;

@@ -14,7 +14,7 @@ public partial class App : Application
     protected override async void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
-        bool smoke = e.Args.Contains("--smoke-test");
+        bool smoke = e.Args.Contains("--smoke-test") || e.Args.Contains("--update-feed-smoke-test");
         ShutdownMode = ShutdownMode.OnExplicitShutdown;
         DispatcherUnhandledException += (_, args) =>
         {
@@ -48,6 +48,17 @@ public partial class App : Application
         collection.AddSingleton<RobloxService>();collection.AddSingleton(new HttpClient { Timeout=TimeSpan.FromSeconds(40) });
         collection.AddSingleton<UpdateService>();collection.AddSingleton<MainViewModel>();collection.AddSingleton<MainWindow>();
         services=collection.BuildServiceProvider();
+        if(e.Args.Contains("--update-feed-smoke-test"))
+        {
+            var updater=services.GetRequiredService<UpdateService>();
+            var release=await updater.CheckAsync();
+            var downloaded=await updater.PrepareInstallerAsync(release,new Version(0,0,0),Path.Combine(root,"Updates"));
+            await using(var verified=await UpdateService.OpenVerifiedInstallerAsync(downloaded))
+            {
+                if(verified.Length<1024)throw new InvalidDataException("Live installer download is too small.");
+            }
+            Shutdown(0);return;
+        }
         Settings startup=new();
         try { startup=await storage.LoadSettingsAsync(); }
         catch(Exception error)when(error is System.Text.Json.JsonException or InvalidDataException) { /* View model preserves corrupt input and reports it. */ }

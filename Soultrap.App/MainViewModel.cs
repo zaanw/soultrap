@@ -22,6 +22,7 @@ public sealed class MainViewModel : Observable
     {
         this.storage=storage;this.log=log;this.engine=engine;this.roblox=roblox;this.updates=updates;
         Action=new AsyncCommand(ExecuteAsync,()=>!Busy);
+        CancelUpdate=new AsyncCommand(_=>{updateCancellation?.Cancel();return Task.CompletedTask;},()=>IsUpdating);
         selectedCursor=Catalog.Cursors[0];presetJson=Serialize(Catalog.BuiltInPresets().First());
     }
     public event Action<string>? LaunchCompleted;
@@ -43,6 +44,18 @@ public sealed class MainViewModel : Observable
     public IEnumerable<UpstreamSetting> VisibleUpstreamSettings => upstreamSettings.Where(p => (UpstreamProject == "All projects" || p.Project == UpstreamProject) && (p.Name.Contains(UpstreamSearch,StringComparison.OrdinalIgnoreCase) || p.Destination.Contains(UpstreamSearch,StringComparison.OrdinalIgnoreCase)));
     public string UpstreamSummary => $"{VisibleUpstreamSettings.Count()} of {upstreamSettings.Count} upstream properties · adapted options have working Soultrap behavior.";
     public void PrepareStartup(Settings value) => Config=value;
+    private CancellationTokenSource? updateCancellation;
+    public AsyncCommand CancelUpdate {get;}
+    private bool isUpdating;
+    public bool IsUpdating {get=>isUpdating;private set{Set(ref isUpdating,value);CancelUpdate.Refresh();}}
+    private double updatePercent;
+    public double UpdatePercent {get=>updatePercent;private set=>Set(ref updatePercent,value);}
+    private bool updateIndeterminate;
+    public bool UpdateIndeterminate {get=>updateIndeterminate;private set=>Set(ref updateIndeterminate,value);}
+    private string updateProgress="";
+    public string UpdateProgress {get=>updateProgress;private set=>Set(ref updateProgress,value);}
+    public static Version CurrentVersion=>typeof(MainViewModel).Assembly.GetName().Version!;
+    public bool UpdateAvailable=>release is not null && UpdateService.IsNewer(release.Tag,CurrentVersion);
     public AsyncCommand Action {get;}
     private bool busy;
     public bool Busy {get=>busy;private set{Set(ref busy,value);Changed(nameof(Idle));Action.Refresh();}}
@@ -123,12 +136,12 @@ public sealed class MainViewModel : Observable
         });
         if(checkUpdates && Config.CheckUpdates)await CheckUpdatesInBackgroundAsync();
     }
-    private static string DescribeRelease(ReleaseInfo value) => $"{value.Tag} · {(UpdateService.IsNewer(value.Tag,new Version(0,2,1))?"New release available":"Up to date")}\n{value.Notes}\nAuthenticity: no Soultrap publisher certificate is pinned; installation is manual.";
+    private static string DescribeRelease(ReleaseInfo value) => $"{value.Tag} · {(UpdateService.IsNewer(value.Tag,CurrentVersion)?"New release available — install below":"Up to date")}\n{value.Notes}";
     public async Task CheckUpdatesInBackgroundAsync()
     {
         try
         {
-            release=await updates.CheckAsync();UpdateText=DescribeRelease(release);
+            release=await updates.CheckAsync();UpdateText=DescribeRelease(release);Changed(nameof(UpdateAvailable));
             log.Write("info","background-updates","Release metadata checked.");
         }
         catch(Exception error)
@@ -190,6 +203,7 @@ public sealed class MainViewModel : Observable
     {
         if(Busy)return;Busy=true;LastError="";Status=operation+"…";
         try{await action();if(Status==operation+"…")Status=operation+" completed.";log.Write("info",operation,Status);if(Config.Sounds)System.Media.SystemSounds.Asterisk.Play();}
+        catch(OperationCanceledException) { Status="Update download cancelled.";LastError="";log.Write("info",operation,Status); }
         catch(Exception ex)
         {
             LastError=operation=="LaunchUri"?"Windows could not launch the Roblox URI. Confirm the registered client and URI format.":ex.Message;
@@ -264,18 +278,43 @@ public sealed class MainViewModel : Observable
             case "InspectMod":if(Open("Soultrap mod ZIP|*.zip") is {} modFile){mod=await ModPackages.ReadAsync(modFile,Client().Version);foreach(var bytes in mod.Files.Values)CursorStudio.Load(bytes);ModDetails=Serialize(mod.Manifest);Status="Package validated for this client version. Not installed yet.";}else Status="Cancelled.";break;
             case "ApplyMod":if(mod is null)throw new InvalidOperationException("Inspect a package first.");if(mod.Manifest.RequiredVersion!=Client().Version)throw new InvalidOperationException("Client changed; inspect package again.");await engine.ApplyAsync(Client(),mod.Files,mod.Manifest.Name);await RefreshBackupsAsync();Status="Mod files applied and verified. In-game effect unverified.";break;
             case "RemoveMod":mod=null;ModDetails="Package removed from memory. Installed files are retained; use Disable or restore its backup to remove changes.";break;
-            case "Diagnostics":await RefreshAsync();DiagnosticText=$"Soultrap 0.2.1\nOS: {Environment.OSVersion}\nRuntime: {Environment.Version}\nData: {storage.Root}\n{ClientDetails}\n{Compatibility}\nFastFlags: {FlagPolicy.Status}\nWindows GUI/Roblox visual effects require manual validation.";if(Config.Experiments.GetValueOrDefault("Enable verbose diagnostic notes"))DiagnosticText+=$"\nVerbose: CPU count={Environment.ProcessorCount}; 64-bit process={Environment.Is64BitProcess}; managed memory={GC.GetTotalMemory(false)} bytes";await RefreshBackupsAsync();break;
+            case "Diagnostics":await RefreshAsync();DiagnosticText=$"Soultrap 0.3.0\nOS: {Environment.OSVersion}\nRuntime: {Environment.Version}\nData: {storage.Root}\n{ClientDetails}\n{Compatibility}\nFastFlags: {FlagPolicy.Status}\nWindows GUI/Roblox visual effects require manual validation.";if(Config.Experiments.GetValueOrDefault("Enable verbose diagnostic notes"))DiagnosticText+=$"\nVerbose: CPU count={Environment.ProcessorCount}; 64-bit process={Environment.Is64BitProcess}; managed memory={GC.GetTotalMemory(false)} bytes";await RefreshBackupsAsync();break;
             case "SaveSettings":await SaveSettingsAsync();break;
             case "ResetSettings":Config=new Settings();await SaveSettingsAsync();break;
             case "ImportSettings":if(Open("JSON|*.json") is {} settingsFile){var imported=await JsonFiles.ReadAsync<Settings>(settingsFile);imported.Validate();Config=imported;await SaveSettingsAsync();}else Status="Cancelled.";break;
             case "ExportSettings":Config.Validate();if(Save("JSON|*.json","soultrap-settings.json") is {} settingsOut)await JsonFiles.WriteAsync(settingsOut,Config with{LaunchUri="roblox-player:"});else Status="Cancelled.";break;
-            case "Updates":release=await updates.CheckAsync();UpdateText=DescribeRelease(release);break;
+            case "Updates":release=await updates.CheckAsync();UpdateText=DescribeRelease(release);Changed(nameof(UpdateAvailable));break;
             case "DownloadUpdate":
-                if(release is null)throw new InvalidOperationException("Check releases first.");var asset=release.Assets.FirstOrDefault(a=>a.Name.EndsWith("-win-x64.zip",StringComparison.OrdinalIgnoreCase))??throw new InvalidOperationException("Release has no x64 portable ZIP.");
-                if(Save("ZIP|*.zip",Path.GetFileName(asset.Name)) is {} destination){await updates.DownloadAsync(asset,destination);Status="Archive downloaded and SHA-256 verified against GitHub metadata. Publisher authenticity is not pinned; nothing was executed.";}else Status="Cancelled.";break;
+            case "InstallUpdate":await InstallUpdateAsync();break;
             case "Owner":OwnerAuthentication.Authenticate(storage.Root,new WindowInteropHelper(Application.Current.MainWindow).Handle);new OwnerWindow(this){Owner=Application.Current.MainWindow}.ShowDialog();break;
             default:throw new InvalidOperationException("Unknown action.");
         }
+    }
+    private async Task InstallUpdateAsync()
+    {
+        release ??= await updates.CheckAsync();
+        Changed(nameof(UpdateAvailable));
+        if(!UpdateService.IsNewer(release.Tag,CurrentVersion)) { Status="Soultrap is already up to date.";return; }
+        updateCancellation?.Dispose();updateCancellation=new CancellationTokenSource();
+        IsUpdating=true;UpdatePercent=0;UpdateIndeterminate=true;UpdateProgress="Connecting to official GitHub release…";
+        PreparedInstaller prepared;
+        try
+        {
+            var progress=new Progress<DownloadProgress>(value=>
+            {
+                UpdatePercent=value.Percent;UpdateIndeterminate=value.Total is not >0;
+                UpdateProgress=$"{value.Stage} · {value.Bytes/1048576d:F1}"+(value.Total is {} total?$" / {total/1048576d:F1} MiB":" MiB");
+            });
+            prepared=await updates.PrepareInstallerAsync(release,CurrentVersion,Path.Combine(storage.Root,"Updates"),progress,updateCancellation.Token);
+            updateCancellation.Token.ThrowIfCancellationRequested();
+        }
+        finally { IsUpdating=false; }
+        string confirmation=$"Install Soultrap {prepared.Release.Tag} from github.com/zaanw/soultrap?\n\nSHA-256 verified against GitHub release metadata.\nPublisher identity is not independently pinned; Windows may display an unknown-publisher warning.\n\nSoultrap will close, update this installation and restart:\n{AppContext.BaseDirectory}\n\nSettings and backups remain in your Soultrap data folder. Continue?";
+        if(MessageBox.Show(confirmation,"Install Soultrap update",MessageBoxButton.YesNo,MessageBoxImage.Question,MessageBoxResult.No)!=MessageBoxResult.Yes)
+        {Status="Installation cancelled. Verified installer retained in the Updates folder.";return;}
+        int installer=await UpdateService.InstallAsync(prepared,AppContext.BaseDirectory,userConfirmed:true);
+        log.Write("info","update-install",$"Installer process {installer} started for {prepared.Release.Tag}; completion is handled by Windows installer.");
+        Application.Current.Shutdown();
     }
     private static void CreateShortcut(string folder)
     {

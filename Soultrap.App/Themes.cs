@@ -34,7 +34,7 @@ public static class Themes
             WindowChrome.Apply(window,dark);
             window.Opacity=settings.Opacity;
             window.Topmost=settings.AlwaysOnTop;
-            ((System.Windows.FrameworkElement)window.Content).LayoutTransform = new ScaleTransform(settings.UiScale,settings.UiScale);
+            window.NavigationPages.LayoutTransform = new ScaleTransform(settings.UiScale,settings.UiScale);
         }
     }
     private static void Change(string key,string text,bool animate)

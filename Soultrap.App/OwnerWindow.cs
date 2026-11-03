@@ -8,7 +8,7 @@ public sealed class OwnerWindow : Window
     {
         Style=(Style)Application.Current.FindResource(typeof(Window));
         Title="SOULTRAP DEVELOPER CONSOLE";Width=730;Height=530;WindowStartupLocation=WindowStartupLocation.CenterOwner;
-        var tabs=new TabControl{Margin=new Thickness(12)};Content=tabs;
+        var tabs=new TabControl{Margin=new Thickness(12),ItemContainerStyle=new Style(typeof(TabItem))};Content=tabs;
         Add("Owner Profile",new TextBlock{Text="👑 SOULTRAP OWNER\nAuthenticated Windows account — local Soultrap profile only.\nNo privileges inside Roblox. Every opening requires Windows credentials.\nWindows Hello is not implemented. Passwordless accounts cannot use this console.\nThis local lock is not a security boundary against programs already running as this Windows account.",Margin=new Thickness(15)});
         var experiments=new StackPanel();experiments.Children.Add(new TextBlock{Text="Local Soultrap feature switches. They do not affect Roblox flags."});
         foreach(var name in new[]{"Show experimental cursor studio notes","Enable verbose diagnostic notes"})

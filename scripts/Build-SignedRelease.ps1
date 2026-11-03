@@ -65,7 +65,7 @@ try {
     $installers = @(Get-ChildItem $installerDir -Filter '*.exe')
     if ($installers.Count -ne 1) { throw 'Expected exactly one signed installer.' }
     Confirm-PublisherSignature $installers[0].FullName
-    $archive = Join-Path $output 'Soultrap-0.2.1-win-x64.zip'
+    $archive = Join-Path $output 'Soultrap-0.3.0-win-x64.zip'
     Compress-Archive -Path "$staging/*" -DestinationPath $archive
     $files = @((Get-Item $archive)) + $installers
     $lines = foreach ($file in $files) { '{0}  {1}' -f (Get-FileHash $file.FullName -Algorithm SHA256).Hash.ToLowerInvariant(), $file.Name }

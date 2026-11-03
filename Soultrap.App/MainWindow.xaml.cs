@@ -22,6 +22,14 @@ public partial class MainWindow : Window
         Closed+=(_,_)=>vm.LaunchCompleted-=OnLaunchCompleted;
         PreviewKeyDown+=(_,e)=> { if(e.Key==System.Windows.Input.Key.K && System.Windows.Input.Keyboard.Modifiers==System.Windows.Input.ModifierKeys.Control) { NavigationSearch.Focus();e.Handled=true; } };
     }
+    private void MinimizeWindow(object sender,RoutedEventArgs e)=>WindowState=WindowState.Minimized;
+    private void MaximizeWindow(object sender,RoutedEventArgs e)=>WindowState=WindowState==WindowState.Maximized?WindowState.Normal:WindowState.Maximized;
+    private void CloseWindow(object sender,RoutedEventArgs e)=>Close();
+    private void NavigateShortcut(object sender,RoutedEventArgs e)
+    {
+        string target=((System.Windows.Controls.Button)sender).Tag?.ToString()??"Home";
+        NavigationSearch.Clear();Pages.SelectedItem=Pages.Items.Cast<System.Windows.Controls.TabItem>().First(p=>p.Header.ToString()==target);
+    }
     public System.Windows.Controls.TabControl NavigationPages=>Pages;
     public void NavigateTo(int index) { NavigationSearch.Clear();Pages.SelectedIndex=index; }
     private void OnLaunchCompleted(string behavior)

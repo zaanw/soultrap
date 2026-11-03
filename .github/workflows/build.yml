@@ -8,6 +8,9 @@ permissions:
 jobs:
   windows:
     runs-on: windows-latest
+    permissions:
+      contents: read
+      actions: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
@@ -45,13 +48,18 @@ jobs:
       - name: Package portable build and installer
         shell: pwsh
         run: |
-          Compress-Archive -Path artifacts/publish/* -DestinationPath artifacts/Soultrap-0.2.1-win-x64.zip
+          Compress-Archive -Path artifacts/publish/* -DestinationPath artifacts/Soultrap-0.3.0-win-x64.zip
           $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
           if (!(Test-Path $compiler)) { throw 'Inno Setup 6 is required on this Windows runner.' }
           & $compiler /DPublishDir="$pwd\artifacts\publish" Soultrap.Installer/Soultrap.iss
           if ($LASTEXITCODE -ne 0) { throw 'Installer compilation failed.' }
           Get-ChildItem artifacts -Filter *.zip | Get-FileHash -Algorithm SHA256 | Format-Table -AutoSize | Out-String | Set-Content artifacts/SHA256SUMS.txt
           Get-ChildItem artifacts/installer -Filter *.exe | Get-FileHash -Algorithm SHA256 | Format-Table -AutoSize | Out-String | Add-Content artifacts/SHA256SUMS.txt
+      - name: Verify installer upgrade, relaunch and user-data preservation
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./scripts/Test-InstallerUpgrade.ps1
       - uses: actions/upload-artifact@v4
         with:
           name: Soultrap-Windows-x64
@@ -75,7 +83,7 @@ jobs:
           dotnet-version: '8.0.427'
       - run: dotnet restore Soultrap.Tests --locked-mode
       - run: dotnet test Soultrap.Tests -c Release --no-restore
-  release-draft:
+  release:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: [windows, core-linux]
     runs-on: ubuntu-latest
@@ -87,12 +95,34 @@ jobs:
         with:
           name: Soultrap-Windows-x64
           path: release-files
-      - name: Create draft prerelease without replacing existing assets
+      - name: Publish immutable stable update release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if gh release view v0.2.1 >/dev/null 2>&1; then
-            echo 'Existing v0.2.1 release retained. New files remain in workflow artifacts.'
+          if gh release view v0.3.0 >/dev/null 2>&1; then
+            echo 'Existing v0.3.0 release retained. New files remain in workflow artifacts.'
           else
-            gh release create v0.2.1 $(find release-files -type f) --target "$GITHUB_SHA" --draft --prerelease --title 'Soultrap 0.2.1 — Windows validation pending' --notes-file CHANGELOG.md
+            gh release create v0.3.0 $(find release-files -type f \( -name '*.exe' -o -name '*.zip' -o -name 'SHA256SUMS.txt' \)) --target "$GITHUB_SHA" --title 'Soultrap 0.3.0' --latest --notes-file CHANGELOG.md
           fi
+  verify-public-feed:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: release
+    runs-on: windows-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: Soultrap-Windows-x64
+          path: downloaded
+      - shell: pwsh
+        run: |
+          Expand-Archive downloaded/Soultrap-0.3.0-win-x64.zip feed-test
+          $verified = $false
+          for ($attempt = 1; $attempt -le 3; $attempt++) {
+            $app = Start-Process "$pwd/feed-test/Soultrap.exe" -ArgumentList '--update-feed-smoke-test' -PassThru
+            if (!$app.WaitForExit(120000)) { $app.Kill(); throw 'Live update-feed check timed out.' }
+            if ($app.ExitCode -eq 0) { $verified = $true; break }
+            $report = Join-Path $env:TEMP 'Soultrap-smoke-errors.txt'
+            if (Test-Path $report) { Get-Content $report }
+            if ($attempt -lt 3) { Start-Sleep -Seconds 5 }
+          }
+          if (!$verified) { throw 'Published release API, installer download or integrity verification failed.' }
