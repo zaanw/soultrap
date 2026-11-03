@@ -33,7 +33,11 @@ jobs:
             if (!$app.WaitForExit(30000)) { $app.Kill(); throw 'WPF smoke test timed out.' }
             if ($app.ExitCode -ne 0) {
               $report = Join-Path $env:TEMP 'Soultrap-smoke-errors.txt'
-              if (Test-Path $report) { Get-Content $report }
+              if (Test-Path $report) {
+                Get-Content $report
+                $detail = (Get-Content $report -Raw).Replace('%','%25').Replace("`r",'%0D').Replace("`n",'%0A')
+                Write-Output "::error title=WPF startup regression::$detail"
+              }
               throw "WPF startup/tab smoke test failed: $($app.ExitCode)"
             }
           }
