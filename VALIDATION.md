@@ -1,5 +1,9 @@
 # Validation — 2026-11-03
 
+## 0.2.1 — rendered theme regression
+
+Application commit `26f0e4f`, [Windows CI 41661487829](https://github.com/zaanw/soultrap/actions/runs/41661487829): Windows build, unit tests, GUI smoke, publish and installer packaging succeeded. GUI checks render the shared window root, translate page/footer/scroll coordinates into that frame and compare pixels against the active palette; body text and primary-button foreground inheritance are checked in every theme. Existing 56 unit/integration tests remain unchanged. This fixes the white dark-mode page/error area shown in user feedback; it does not change Roblox detection or claim gameplay testing.
+
 ## 0.2.0 — redesigned menu and startup flow
 
 Application commit `c2ce2db` verified in [GitHub Actions 41657532965](https://github.com/zaanw/soultrap/actions/runs/41657532965): Windows, Linux and release-draft jobs all succeeded. Windows artifacts are available as **Soultrap-Windows-x64**, artifact ID `13241240111`.

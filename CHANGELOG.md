@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 — 2026-11-03
+
+Fix the white client area and error footer in dark mode. Explicit Window styles for derived windows, theme backgrounds on page/scroll surfaces, themed scrollbars/progress tracks, inherited body/button foregrounds and readable combo arrows. Windows GUI regression now samples actual rendered page/footer pixels and checks body/button text in all eight palettes. CI run 41661487829 passed Windows build/tests, all splash/navigation/theme checks, publish and installer packaging. No Roblox detection behavior changed.
+
 ## 0.2.0 — 2026-11-03
 
 Voidstrap-inspired sidebar and search, adapted MIT startup layouts (Fluent and Classic), real initialization progress, eight working palettes, launcher behavior/rendering/editor preferences, local process monitoring, Windows shortcuts and safe log maintenance. Inventory of 501 upstream configuration declarations with supported-subset import and honest compatibility statuses. Existing Soultrap themes/configs remain readable. Expanded tests and Windows startup/tab/navigation checks; CI captures UI screenshots.
