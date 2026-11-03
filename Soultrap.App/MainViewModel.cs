@@ -25,6 +25,7 @@ public sealed class MainViewModel : Observable
         selectedCursor=Catalog.Cursors[0];presetJson=Serialize(Catalog.BuiltInPresets().First());
     }
     public event Action<string>? LaunchCompleted;
+    public string BrandIcon => Path.Combine(AppContext.BaseDirectory,"Assets","Icons","soultrap.png");
     public string[] SplashStyles => ["Fluent", "Classic"];
     public string[] AfterLaunchOptions => ["Keep open", "Minimize", "Close"];
     public string[] ProcessPriorities => ["Normal", "AboveNormal", "BelowNormal"];
