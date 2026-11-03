@@ -1032,8 +1032,8 @@
     "Project": "Voidstrap",
     "Name": "CustomFontScale",
     "Type": "double",
-    "Status": "Adapted",
-    "Destination": "Appearance \u2192 Interface scale"
+    "Status": "Not implemented",
+    "Destination": "Roblox custom-font resource scaling is not ported; this is not launcher zoom."
   },
   {
     "Project": "Voidstrap",
@@ -2845,8 +2845,8 @@
     "Project": "Voidstrap",
     "Name": "UiZoomPercent",
     "Type": "int",
-    "Status": "Not implemented",
-    "Destination": "Requires an upstream-specific integration; not applied by Soultrap."
+    "Status": "Adapted",
+    "Destination": "Appearance \u2192 Interface scale (percent converted to factor)"
   },
   {
     "Project": "Voidstrap",

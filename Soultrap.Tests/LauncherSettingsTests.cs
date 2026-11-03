@@ -25,11 +25,17 @@ public sealed class LauncherSettingsTests : IDisposable
     [Fact] public void RealtimePriorityRejectedBeforeClientLaunch()=>Assert.Throws<InvalidDataException>(()=>new RobloxService().Launch(new(root,"version-test",DateTime.UtcNow),"Realtime"));
     [Fact] public void UpstreamImportMapsActualSupportedOptions()
     {
-        using var input=JsonDocument.Parse("{\"CheckForUpdates\":false,\"ConfirmLaunches\":false,\"WPFSoftwareRender\":true,\"DisableSplashScreen\":true,\"BootstrapperTitle\":\"Imported\",\"CustomFontScale\":1.1,\"EditorFontSize\":16,\"EditorWordWrap\":true,\"EnableActivityTracking\":false,\"CustomAccentColor\":\"#112233\",\"UseDiscordRichPresence\":true}");
+        using var input=JsonDocument.Parse("{\"CheckForUpdates\":false,\"ConfirmLaunches\":false,\"WPFSoftwareRender\":true,\"DisableSplashScreen\":true,\"BootstrapperTitle\":\"Imported\",\"UiZoomPercent\":110,\"EditorFontSize\":16,\"EditorWordWrap\":true,\"EnableActivityTracking\":false,\"CustomAccentColor\":\"#112233\",\"UseDiscordRichPresence\":true}");
         var result=LauncherSettingsImport.Import(input.RootElement,new Settings());
         Assert.Equal(10,result.Imported);Assert.Equal("UseDiscordRichPresence",Assert.Single(result.Unmapped));
         Assert.False(result.Value.ShowSplashScreen);Assert.False(result.Value.CheckUpdates);Assert.True(result.Value.SoftwareRendering);
         Assert.Equal("Imported",result.Value.SplashTitle);Assert.Equal(16,result.Value.EditorFontSize);Assert.Equal("Custom Theme",result.Value.Theme);
+    }
+    [Fact] public void RobloxFontScaleDoesNotAlterLauncherZoom()
+    {
+        using var input=JsonDocument.Parse("{\"CustomFontScale\":1.4}");
+        var imported=LauncherSettingsImport.Import(input.RootElement,new Settings());
+        Assert.Equal(1,imported.Value.UiScale);Assert.Equal("CustomFontScale",Assert.Single(imported.Unmapped));
     }
     [Fact] public void InvalidImportDoesNotModifyCurrentSettings()
     {

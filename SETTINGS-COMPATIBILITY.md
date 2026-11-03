@@ -18,7 +18,7 @@ Reference snapshots are the commits recorded in RESEARCH.md. Re-inspected:
 | Bloxstrap / Fishstrap: WPFSoftwareRender | WPF software rendering compatibility mode |
 | All three: BootstrapperTitle | Custom Soultrap startup-window title, with validated length |
 | Voidstrap: DisableSplashScreen | Inverse of Show startup loading screen; suppresses splash on next startup |
-| Voidstrap: CustomFontScale | Whole-workspace scale, 0.85–1.50 |
+| Voidstrap: UiZoomPercent | Whole-workspace scale, 0.85–1.50 (converted from percent) |
 | Voidstrap: EditorFontSize / EditorWordWrap | Actual JSON-editor typography and line wrapping |
 | Voidstrap: CustomAccentColor | Validated custom #RRGGBB accent |
 | Bloxstrap / Fishstrap: EnableActivityTracking | Simplified local process-status monitor; no game/session parsing or Discord publishing |
@@ -29,7 +29,7 @@ Reference snapshots are the commits recorded in RESEARCH.md. Re-inspected:
 
 Additional working Soultrap settings: always-on-top, sidebar width, behavior after successful launch (keep open / minimize / close), tray, autostart, UI sounds/animations, opacity, client path and session-only launch URI.
 
-**Import supported upstream settings** reads the original JSON, validates a copy of the local configuration, applies supported keys and reports unmapped property names in Diagnostics. Unknown cookie/token/account values are not displayed or applied. Original upstream files are never modified. Source-specific numeric enums and nested integration configurations are not guessed. Old Soultrap schema-1 settings retain their selected theme and receive defaults for new options.
+**Import supported upstream settings** reads the original JSON, validates a copy of the local configuration, applies supported keys and reports unmapped property names in Diagnostics. Unknown cookie/token/account values are not displayed or applied. Original upstream files are never modified. Source-specific numeric enums and nested integration configurations are not guessed. `CustomFontScale` is Roblox font-resource scaling, not launcher zoom, and is explicitly not imported. Old Soultrap schema-1 settings retain their selected theme and receive defaults for new options.
 
 ## Explicitly not ported
 

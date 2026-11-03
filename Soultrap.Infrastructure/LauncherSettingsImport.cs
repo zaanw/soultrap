@@ -17,7 +17,7 @@ public static class LauncherSettingsImport
                 case "WPFSoftwareRender": result.SoftwareRendering = field.Value.GetBoolean(); break;
                 case "DisableSplashScreen": result.ShowSplashScreen = !field.Value.GetBoolean(); break;
                 case "BootstrapperTitle": result.SplashTitle = field.Value.GetString() ?? "SOULTRAP"; break;
-                case "CustomFontScale": result.UiScale = field.Value.GetDouble(); break;
+                case "UiZoomPercent": result.UiScale = field.Value.GetDouble() / 100d; break;
                 case "EditorFontSize": result.EditorFontSize = field.Value.GetDouble(); break;
                 case "EditorWordWrap": result.EditorWordWrap = field.Value.GetBoolean(); break;
                 case "EnableActivityTracking": result.TrackRobloxProcess = field.Value.GetBoolean(); break;
