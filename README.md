@@ -58,3 +58,7 @@ Only these two destinations are accepted. Extra entries, traversal, links, execu
 * Actual Windows GUI, tray, credentials, startup, publisher validation, Roblox launch and visible cursor behavior must be manually tested on Windows 11. Linux unit tests cannot establish those outcomes.
 
 See [RESEARCH.md](RESEARCH.md), [ARCHITECTURE.md](ARCHITECTURE.md), [VALIDATION.md](VALIDATION.md), and [CHANGELOG.md](CHANGELOG.md). All bundled cursor graphics are original geometric artwork, not Roblox assets.
+
+## SmartScreen / Unknown publisher
+
+Current CI downloads are unsigned. A trusted publisher certificate is required for Authenticode signing; a code change cannot guarantee suppression of SmartScreen's reputation warning. [SIGNING.md](SIGNING.md) describes the external certificate requirement and the Windows script that signs and verifies the app, installer and uninstaller. Do not treat a normal unsigned CI build as a signed release.

@@ -19,6 +19,10 @@ Compression=lzma2
 SolidCompression=yes
 WizardStyle=classic
 UninstallDisplayIcon={app}\Soultrap.exe
+#ifdef SignedBuild
+SignTool=soultrap
+SignedUninstaller=yes
+#endif
 [Files]
 Source: "{#PublishDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 [Icons]

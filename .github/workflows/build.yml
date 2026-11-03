@@ -15,6 +15,13 @@ jobs:
           dotnet-version: '8.0.427'
           cache: true
           cache-dependency-path: '**/packages.lock.json'
+      - name: Validate release-signing script syntax
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $parseErrors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile("$pwd/scripts/Build-SignedRelease.ps1", [ref]$tokens, [ref]$parseErrors) | Out-Null
+          if ($parseErrors.Count -gt 0) { $parseErrors | Format-List; throw 'Signing script syntax error.' }
       - run: dotnet restore Soultrap.sln --locked-mode
       - run: dotnet build Soultrap.sln -c Release --no-restore
       - run: dotnet test Soultrap.Tests -c Release --no-build --logger 'trx;LogFileName=windows.trx'
