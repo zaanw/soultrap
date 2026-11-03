@@ -28,3 +28,7 @@ Use a consistent verified publisher identity and distribute the signed artifacts
 If Defender reports an actual named threat, record the detection name and submit the exact build to Microsoft's official analysis portal: https://www.microsoft.com/en-us/wdsi/filesubmission . Request review of a suspected false positive. A SmartScreen unknown-publisher warning alone is not evidence of malware or an antivirus false positive.
 
 This project does not change Defender settings, add antivirus exclusions, install a private root CA, or remove download security markings. Those actions would not make the publisher publicly trusted.
+
+## Interactive updates in 0.3.1
+
+In-app installer updates now support explicit user-confirmed installation of the official GitHub asset after SHA-256 and PE verification. This does not establish a pinned publisher identity or remove SmartScreen warnings. Unattended install remains disabled. The downloader writes Windows Internet-zone metadata; it does not remove security markings. See UPDATING.md for the trust boundary.

@@ -1,6 +1,6 @@
 # SOULTRAP — Ultimate Aero
 
-An independent Windows 11 WPF Roblox customization workbench, with a Voidstrap-inspired sidebar, dark/light themes and startup screen. Aero palettes are retained. **Version 0.2.0 adds the redesigned menu and working launcher preferences; real Roblox acceptance remains outstanding.** Soultrap is not affiliated with Roblox.
+An independent Windows 11 WPF Roblox customization workbench, with a Voidstrap-inspired sidebar, dark/light themes and startup screen. Aero palettes are retained. **Version 0.3.1 adds a grouped Voidstrap-style shell and in-app installer updates; real Roblox gameplay acceptance remains outstanding.** Soultrap is not affiliated with Roblox.
 
 ## Build and run
 
@@ -16,7 +16,7 @@ dotnet publish Soultrap.App -c Release -r win-x64 --self-contained true -o artif
 
 Run `artifacts/publish/Soultrap.exe`. Keep all published files together. End users of the self-contained folder need neither Visual Studio nor the .NET runtime. “Portable” means a relocatable application folder; user data remains in `%LOCALAPPDATA%\Soultrap`.
 
-For a per-user Windows installer, install Inno Setup 6 and compile `Soultrap.Installer/Soultrap.iss` after publishing. GitHub Actions builds/tests on Windows and Linux and uploads the ZIP and installer as workflow artifacts. A pushed commit is not evidence that the remote workflow passed. After successful Windows and Linux jobs, a main-branch push creates a draft prerelease with the packaged binaries if v0.2.0 does not already exist. No public release is auto-published and no executable is silently signed.
+For a per-user Windows installer, install Inno Setup 6 and compile `Soultrap.Installer/Soultrap.iss` after publishing. GitHub Actions builds/tests on Windows and Linux and uploads the ZIP and installer as workflow artifacts. A pushed commit is not evidence that the remote workflow passed. After successful Windows/Linux tests, GUI checks and installer upgrade tests, a main-branch push publishes a stable versioned GitHub release. Existing versions/assets are retained. Binaries remain unsigned unless the publisher configures signing.
 
 ## Use
 
@@ -53,7 +53,7 @@ Only these two destinations are accepted. Extra entries, traversal, links, execu
 * Historical menu/HUD/CoreGui replacement is unavailable. Classic Roblox is an interactive **local preview only**; it is not a pixel-exact recreation.
 * FastFlags search, categories, scalar validation and JSON import/export work locally. Application is deliberately disabled: no authoritative current allowlist was verified. Nonempty flags block preset application. Arbitrary flags are not promised to work.
 * Client installation/updates are delegated to the official Roblox installer, which the user launches. There is no channel switcher, old-client downgrade or built-in online client version comparison.
-* Soultrap update metadata/download code requires a real GitHub release and asset digest. No release is assumed to exist. SHA-256 alone does not establish publisher identity; downloaded files are never auto-executed. Certificate pinning, signed release distribution and automatic installation remain future work.
+* Soultrap update metadata/download code requires a real GitHub release and asset digest. No release is assumed to exist. SHA-256 alone does not establish independent publisher identity. The in-app updater downloads only a version-matched EXE from the fixed GitHub repository, validates its digest and PE header, and asks for explicit confirmation before starting the installer. Unattended installation and publisher pinning are not enabled.
 * English interface only. No Windows Hello, game chat integration or Roblox account privileges. Feature switches control local diagnostic/editor notes only.
 * Actual Windows GUI, tray, credentials, startup, publisher validation, Roblox launch and visible cursor behavior must be manually tested on Windows 11. Linux unit tests cannot establish those outcomes.
 
@@ -66,3 +66,13 @@ Current CI downloads are unsigned. A trusted publisher certificate is required f
 ## Voidstrap-style menu and settings (0.2.0)
 
 Use the sidebar to switch sections; Ctrl+K focuses navigation search. Startup has Fluent and Classic layouts, based on Voidstrap under MIT, showing actual initialization stages. Settings configure splash, rendering, scale, editor appearance, launch confirmation/behavior and client priority. Integrations adds local process tracking and shortcut creation; Maintenance safely cleans old logs. Upstream Settings searches 501 property declarations from all three projects and imports the supported subset. Unsupported integrations are explicitly labeled. See [SETTINGS-COMPATIBILITY.md](SETTINGS-COMPATIBILITY.md) for the complete scope, provenance and limitations.
+
+## Updates inside Soultrap (0.3.1)
+
+Install the initial version directly with [Soultrap-0.3.1-Setup-x64.exe](https://github.com/zaanw/soultrap/releases/download/v0.3.1/Soultrap-0.3.1-Setup-x64.exe). No ZIP is needed. Versions 0.2.x require this one-time bootstrap because their update UI could only export an archive.
+
+Then use **Updates → Check for updates → Download and install update**. Download progress and cancellation appear in the bottom strip. After hash/PE verification, confirm installation; Soultrap closes, the per-user installer upgrades the same folder, and the updated app restarts. Saved configuration/backups stay in `%LOCALAPPDATA%/Soultrap`. Unsaved editor/settings changes should be saved first. Protected/read-only installation folders fail before Soultrap closes.
+
+Stable releases are published by CI only after checks pass. For the next release, increase Version and matching installer/workflow asset identifiers before publishing; an existing version is never silently replaced. The live-feed CI downloads the actual public installer and rechecks it without executing it. The separate installer test upgrades a prior build, checks relaunch and byte-for-byte data preservation, and uninstalls the test app without deleting data.
+
+GitHub HTTPS metadata and SHA-256 are the update trust source, not an independently pinned publisher certificate. Windows download-zone metadata is preserved and Windows may still ask about an unsigned publisher. See [UPDATING.md](UPDATING.md).

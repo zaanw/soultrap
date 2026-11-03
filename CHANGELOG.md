@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 — 2026-11-03
+
+Voidstrap-style grouped navigation, vector icons and active marker, integrated draggable title bar/window controls, compact Roblox home and persistent footer actions. Flat themed settings sections replace native beveled group boxes.
+
+Confirmed in-app EXE updates: stable release API, exact version/asset/repository validation, bounded/cancellable download with progress, mandatory SHA-256, PE checks, locked final verification and writable-folder check. Windows Internet-zone metadata retained. Installer updates the same directory, restarts Soultrap and preserves saved settings/backups. Public releases are published only after Windows/Linux, GUI and installer-upgrade checks; a live job verifies the public feed/download. Publisher identity is not pinned; confirmation and possible Windows warnings remain.
+
+77 local tests passed. Initial 0.3.0 CI already validated upgrade from 0.2.1, restart, data preservation and the public feed; final 0.3.1 uses that public build as its upgrade baseline.
+
 ## 0.2.1 — 2026-11-03
 
 Fix the white client area and error footer in dark mode. Explicit Window styles for derived windows, theme backgrounds on page/scroll surfaces, themed scrollbars/progress tracks, inherited body/button foregrounds and readable combo arrows. Windows GUI regression now samples actual rendered page/footer pixels and checks body/button text in all eight palettes. CI run 41661487829 passed Windows build/tests, all splash/navigation/theme checks, publish and installer packaging. No Roblox detection behavior changed.

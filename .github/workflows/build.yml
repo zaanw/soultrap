@@ -48,7 +48,7 @@ jobs:
       - name: Package portable build and installer
         shell: pwsh
         run: |
-          Compress-Archive -Path artifacts/publish/* -DestinationPath artifacts/Soultrap-0.3.0-win-x64.zip
+          Compress-Archive -Path artifacts/publish/* -DestinationPath artifacts/Soultrap-0.3.1-win-x64.zip
           $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
           if (!(Test-Path $compiler)) { throw 'Inno Setup 6 is required on this Windows runner.' }
           & $compiler /DPublishDir="$pwd\artifacts\publish" Soultrap.Installer/Soultrap.iss
@@ -99,10 +99,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if gh release view v0.3.0 >/dev/null 2>&1; then
-            echo 'Existing v0.3.0 release retained. New files remain in workflow artifacts.'
+          if gh release view v0.3.1 >/dev/null 2>&1; then
+            echo 'Existing v0.3.1 release retained. New files remain in workflow artifacts.'
           else
-            gh release create v0.3.0 $(find release-files -type f \( -name '*.exe' -o -name '*.zip' -o -name 'SHA256SUMS.txt' \)) --target "$GITHUB_SHA" --title 'Soultrap 0.3.0' --latest --notes-file CHANGELOG.md
+            gh release create v0.3.1 $(find release-files -type f \( -name '*.exe' -o -name '*.zip' -o -name 'SHA256SUMS.txt' \)) --target "$GITHUB_SHA" --title 'Soultrap 0.3.1' --latest --notes-file CHANGELOG.md
           fi
   verify-public-feed:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -115,7 +115,7 @@ jobs:
           path: downloaded
       - shell: pwsh
         run: |
-          Expand-Archive downloaded/Soultrap-0.3.0-win-x64.zip feed-test
+          Expand-Archive downloaded/Soultrap-0.3.1-win-x64.zip feed-test
           $verified = $false
           for ($attempt = 1; $attempt -le 3; $attempt++) {
             $app = Start-Process "$pwd/feed-test/Soultrap.exe" -ArgumentList '--update-feed-smoke-test' -PassThru
