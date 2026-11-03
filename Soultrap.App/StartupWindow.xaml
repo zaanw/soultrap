@@ -1,6 +1,6 @@
 <!-- Adapted from Voidstrap FluentDialog / ClassicFluentDialog (MIT).
      See legal/VOIDSTRAP-LICENSE.txt, BLOXSTRAP-LICENSE.txt and FISHSTRAP-LICENSE.txt. -->
-<Window x:Class="Soultrap.App.StartupWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="500" Height="280" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="True" Title="Soultrap — starting" Background="{DynamicResource Surface}">
+<Window x:Class="Soultrap.App.StartupWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Style="{StaticResource {x:Type Window}}" Width="500" Height="280" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="True" Title="Soultrap — starting" Background="{DynamicResource Surface}">
  <Border BorderThickness="1" BorderBrush="{DynamicResource Line}" Padding="22">
   <Grid>
    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">

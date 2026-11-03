@@ -13,6 +13,10 @@ internal static class ThemeVisualChecks
         AssertPixel(error,(SolidColorBrush)Application.Current.FindResource("Panel"),"error bar");
         if(window.NavigationPages.SelectedContent is ScrollViewer viewer)
             AssertPixel(viewer,(SolidColorBrush)Application.Current.FindResource("Surface"),"page scroll viewer");
+        var subtitle=(TextBlock)window.FindName("HomeSubtitle");
+        var ink=(SolidColorBrush)Application.Current.FindResource("Ink");
+        if(subtitle.Foreground is not SolidColorBrush body || body.Color!=ink.Color)
+            throw new InvalidOperationException("Page body text is not using the theme foreground.");
         var button=Descendants<Button>(window).First(b=>b.Content?.ToString()=="Save settings");
         var text=Descendants<TextBlock>(button).First(t=>t.Text=="Save settings");
         if(text.Foreground is not SolidColorBrush actual || button.Foreground is not SolidColorBrush expected || actual.Color!=expected.Color)

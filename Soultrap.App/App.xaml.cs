@@ -80,6 +80,7 @@ public partial class App : Application
                 await window.Dispatcher.InvokeAsync(()=>{},System.Windows.Threading.DispatcherPriority.ContextIdle);
                 if(item.Header.ToString() is "Home" or "Settings" or "Upstream Settings")Capture(window,item.Header.ToString()!.Replace(' ','-').ToLowerInvariant());
             }
+            window.NavigateTo(0);window.UpdateLayout();
             foreach(var theme in Catalog.Themes)
             {
                 Themes.Apply(vm.Config with { Theme=theme, Animations=false });

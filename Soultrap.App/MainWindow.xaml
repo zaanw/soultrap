@@ -1,4 +1,4 @@
-<Window x:Class="Soultrap.App.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="SOULTRAP" Width="1180" Height="800" MinWidth="920" MinHeight="630" WindowStartupLocation="CenterScreen">
+<Window x:Class="Soultrap.App.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Style="{StaticResource {x:Type Window}}" Title="SOULTRAP" Width="1180" Height="800" MinWidth="920" MinHeight="630" WindowStartupLocation="CenterScreen">
  <DockPanel Background="{DynamicResource Surface}">
   <Border DockPanel.Dock="Top" Background="{DynamicResource Panel}" BorderBrush="{DynamicResource Line}" BorderThickness="0,0,0,1" Padding="18,12">
    <DockPanel><StackPanel DockPanel.Dock="Left" Orientation="Horizontal"><Image Source="{Binding BrandIcon, Mode=OneWay}" Width="28" Height="28" Margin="0,0,10,0"/><TextBlock Text="SOULTRAP" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center"/></StackPanel>
@@ -11,7 +11,7 @@
   <TabControl x:Name="Pages" Style="{StaticResource NavigationTabs}" IsEnabled="{Binding Idle}">
    <TabItem Header="Home" Tag="⌂"><ScrollViewer><StackPanel>
     <TextBlock Text="Your Roblox workspace" Style="{StaticResource Title}"/>
-    <TextBlock Text="Client customization, presets and launch tools. All in one place."/>
+    <TextBlock x:Name="HomeSubtitle" Text="Client customization, presets and launch tools. All in one place."/>
     <GroupBox Header="Client information"><StackPanel><TextBlock Text="{Binding ClientDetails}"/><ComboBox ItemsSource="{Binding Clients}" DisplayMemberPath="Root" SelectedItem="{Binding SelectedClient}" ToolTip="Select the exact installed client version to inspect or customize."/><TextBlock Text="{Binding Compatibility}"/></StackPanel></GroupBox>
     <WrapPanel><Button Style="{StaticResource PrimaryButton}" Content="▶  PLAY ROBLOX" FontSize="18" Padding="28,13" Command="{Binding Action}" CommandParameter="Play" ToolTip="Launch the selected, Authenticode-verified Roblox client with --app."/><Button Content="Refresh Client" Command="{Binding Action}" CommandParameter="Refresh"/><Button Content="Install / Update Roblox…" Command="{Binding Action}" CommandParameter="RobloxDownload"/></WrapPanel>
     <WrapPanel><Button Content="Check Soultrap Updates" Command="{Binding Action}" CommandParameter="Updates"/><Button Content="Open Roblox Folder" Command="{Binding Action}" CommandParameter="ClientFolder"/><Button Content="Apply Preset" Command="{Binding Action}" CommandParameter="ApplyPreset"/><Button Content="Restore Defaults" Command="{Binding Action}" CommandParameter="Defaults"/><Button Content="View Logs" Command="{Binding Action}" CommandParameter="Logs"/></WrapPanel>
