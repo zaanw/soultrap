@@ -1,5 +1,19 @@
 # Validation — 2026-11-03
 
+## 0.2.0 — redesigned menu and startup flow
+
+Application commit `c2ce2db` verified in [GitHub Actions 41657532965](https://github.com/zaanw/soultrap/actions/runs/41657532965): Windows, Linux and release-draft jobs all succeeded. Windows artifacts are available as **Soultrap-Windows-x64**, artifact ID `13241240111`.
+
+* Local Release build: zero errors/warnings; self-contained win-x64 publish passed.
+* Unit/integration tests: **56 passed, 0 failed, 0 skipped** locally; Windows and Linux test jobs succeeded. New coverage includes preference persistence, old-config compatibility, upstream import mapping/atomic validation, source-font-vs-launcher-zoom distinction, safe process priority and log cleanup boundaries.
+* Windows GUI smoke: real WPF process opens startup window and all twelve navigation pages, filters sidebar sections, follows studio navigation and reapplies all eight themes. Run with Fluent splash, no splash, and Classic splash; all modes passed. Startup/Home/Settings/upstream-inventory PNG captures are uploaded with the Windows artifact.
+* Inno Setup 0.2.0 installer and portable ZIP compiled/packaged/uploaded successfully. No installer interaction or live Roblox gameplay test was performed.
+* The initial new startup test exposed a frozen SolidColorBrush animation error; animations are now attached before publishing brushes to resource consumers. The regression check remains enabled.
+
+The 501-property upstream inventory is not a claim of full upstream feature parity. See SETTINGS-COMPATIBILITY.md for the working subset and explicitly unimplemented integrations. Signing still needs a real trusted publisher certificate; current CI builds remain unsigned. Screenshots were generated automatically; there was no manual Windows UI or live Roblox acceptance session.
+
+## Historical 0.1.0 validation
+
 ## Executed in the managed Debian 13 / Linux x64 cloud instance
 
 * Official .NET SDK 8.0.427 installed in `/workspace/.dotnet` (runtime 8.0.33).
