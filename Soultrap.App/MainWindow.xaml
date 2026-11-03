@@ -1,5 +1,5 @@
 <Window x:Class="Soultrap.App.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="SOULTRAP" Width="1180" Height="800" MinWidth="920" MinHeight="630" WindowStartupLocation="CenterScreen">
- <DockPanel>
+ <DockPanel Background="{DynamicResource Surface}">
   <Border DockPanel.Dock="Top" Background="{DynamicResource Panel}" BorderBrush="{DynamicResource Line}" BorderThickness="0,0,0,1" Padding="18,12">
    <DockPanel><StackPanel DockPanel.Dock="Left" Orientation="Horizontal"><Image Source="{Binding BrandIcon, Mode=OneWay}" Width="28" Height="28" Margin="0,0,10,0"/><TextBlock Text="SOULTRAP" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center"/></StackPanel>
     <StackPanel DockPanel.Dock="Right" Orientation="Horizontal"><Button Content="Developer Console" Command="{Binding Action}" CommandParameter="Owner"/><Button Content="Save settings" Command="{Binding Action}" CommandParameter="SaveSettings" Style="{StaticResource PrimaryButton}"/></StackPanel>
@@ -7,7 +7,7 @@
    </DockPanel>
   </Border>
   <StatusBar DockPanel.Dock="Bottom"><StatusBarItem><TextBlock Text="{Binding Status}" MaxWidth="1000"/></StatusBarItem><ProgressBar IsIndeterminate="{Binding Busy}" Width="70" Height="10"/></StatusBar>
-  <Border DockPanel.Dock="Bottom" BorderBrush="{DynamicResource Line}" BorderThickness="0,1,0,0" Padding="6"><TextBox Text="{Binding LastError, Mode=OneWay}" IsReadOnly="True" BorderThickness="0" Background="Transparent" Foreground="#E37979" TextWrapping="Wrap" MaxHeight="60" ToolTip="Copyable last error. See Diagnostics for structured logs."/></Border>
+  <Border x:Name="ErrorSurface" Background="{DynamicResource Panel}" DockPanel.Dock="Bottom" BorderBrush="{DynamicResource Line}" BorderThickness="0,1,0,0" Padding="6"><TextBox Text="{Binding LastError, Mode=OneWay}" IsReadOnly="True" BorderThickness="0" Background="Transparent" Foreground="#E37979" TextWrapping="Wrap" MaxHeight="60" ToolTip="Copyable last error. See Diagnostics for structured logs."/></Border>
   <TabControl x:Name="Pages" Style="{StaticResource NavigationTabs}" IsEnabled="{Binding Idle}">
    <TabItem Header="Home" Tag="⌂"><ScrollViewer><StackPanel>
     <TextBlock Text="Your Roblox workspace" Style="{StaticResource Title}"/>

@@ -123,7 +123,7 @@ public sealed class MainViewModel : Observable
         });
         if(checkUpdates && Config.CheckUpdates)await CheckUpdatesInBackgroundAsync();
     }
-    private static string DescribeRelease(ReleaseInfo value) => $"{value.Tag} · {(UpdateService.IsNewer(value.Tag,new Version(0,2,0))?"New release available":"Up to date")}\n{value.Notes}\nAuthenticity: no Soultrap publisher certificate is pinned; installation is manual.";
+    private static string DescribeRelease(ReleaseInfo value) => $"{value.Tag} · {(UpdateService.IsNewer(value.Tag,new Version(0,2,1))?"New release available":"Up to date")}\n{value.Notes}\nAuthenticity: no Soultrap publisher certificate is pinned; installation is manual.";
     public async Task CheckUpdatesInBackgroundAsync()
     {
         try
@@ -264,7 +264,7 @@ public sealed class MainViewModel : Observable
             case "InspectMod":if(Open("Soultrap mod ZIP|*.zip") is {} modFile){mod=await ModPackages.ReadAsync(modFile,Client().Version);foreach(var bytes in mod.Files.Values)CursorStudio.Load(bytes);ModDetails=Serialize(mod.Manifest);Status="Package validated for this client version. Not installed yet.";}else Status="Cancelled.";break;
             case "ApplyMod":if(mod is null)throw new InvalidOperationException("Inspect a package first.");if(mod.Manifest.RequiredVersion!=Client().Version)throw new InvalidOperationException("Client changed; inspect package again.");await engine.ApplyAsync(Client(),mod.Files,mod.Manifest.Name);await RefreshBackupsAsync();Status="Mod files applied and verified. In-game effect unverified.";break;
             case "RemoveMod":mod=null;ModDetails="Package removed from memory. Installed files are retained; use Disable or restore its backup to remove changes.";break;
-            case "Diagnostics":await RefreshAsync();DiagnosticText=$"Soultrap 0.2.0\nOS: {Environment.OSVersion}\nRuntime: {Environment.Version}\nData: {storage.Root}\n{ClientDetails}\n{Compatibility}\nFastFlags: {FlagPolicy.Status}\nWindows GUI/Roblox visual effects require manual validation.";if(Config.Experiments.GetValueOrDefault("Enable verbose diagnostic notes"))DiagnosticText+=$"\nVerbose: CPU count={Environment.ProcessorCount}; 64-bit process={Environment.Is64BitProcess}; managed memory={GC.GetTotalMemory(false)} bytes";await RefreshBackupsAsync();break;
+            case "Diagnostics":await RefreshAsync();DiagnosticText=$"Soultrap 0.2.1\nOS: {Environment.OSVersion}\nRuntime: {Environment.Version}\nData: {storage.Root}\n{ClientDetails}\n{Compatibility}\nFastFlags: {FlagPolicy.Status}\nWindows GUI/Roblox visual effects require manual validation.";if(Config.Experiments.GetValueOrDefault("Enable verbose diagnostic notes"))DiagnosticText+=$"\nVerbose: CPU count={Environment.ProcessorCount}; 64-bit process={Environment.Is64BitProcess}; managed memory={GC.GetTotalMemory(false)} bytes";await RefreshBackupsAsync();break;
             case "SaveSettings":await SaveSettingsAsync();break;
             case "ResetSettings":Config=new Settings();await SaveSettingsAsync();break;
             case "ImportSettings":if(Open("JSON|*.json") is {} settingsFile){var imported=await JsonFiles.ReadAsync<Settings>(settingsFile);imported.Validate();Config=imported;await SaveSettingsAsync();}else Status="Cancelled.";break;

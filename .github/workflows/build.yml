@@ -45,7 +45,7 @@ jobs:
       - name: Package portable build and installer
         shell: pwsh
         run: |
-          Compress-Archive -Path artifacts/publish/* -DestinationPath artifacts/Soultrap-0.2.0-win-x64.zip
+          Compress-Archive -Path artifacts/publish/* -DestinationPath artifacts/Soultrap-0.2.1-win-x64.zip
           $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
           if (!(Test-Path $compiler)) { throw 'Inno Setup 6 is required on this Windows runner.' }
           & $compiler /DPublishDir="$pwd\artifacts\publish" Soultrap.Installer/Soultrap.iss
@@ -91,8 +91,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if gh release view v0.2.0 >/dev/null 2>&1; then
-            echo 'Existing v0.2.0 release retained. New files remain in workflow artifacts.'
+          if gh release view v0.2.1 >/dev/null 2>&1; then
+            echo 'Existing v0.2.1 release retained. New files remain in workflow artifacts.'
           else
-            gh release create v0.2.0 $(find release-files -type f) --target "$GITHUB_SHA" --draft --prerelease --title 'Soultrap 0.2.0 — Windows validation pending' --notes-file CHANGELOG.md
+            gh release create v0.2.1 $(find release-files -type f) --target "$GITHUB_SHA" --draft --prerelease --title 'Soultrap 0.2.1 — Windows validation pending' --notes-file CHANGELOG.md
           fi

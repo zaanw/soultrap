@@ -82,11 +82,12 @@ public partial class App : Application
             }
             foreach(var theme in Catalog.Themes)
             {
-                Themes.Apply(vm.Config with { Theme=theme });
+                Themes.Apply(vm.Config with { Theme=theme, Animations=false });
                 window.UpdateLayout();
                 await window.Dispatcher.InvokeAsync(()=>{},System.Windows.Threading.DispatcherPriority.ContextIdle);
+                ThemeVisualChecks.Verify(window);
             }
-            Themes.Apply(vm.Config);
+            Themes.Apply(vm.Config with { Animations=false });
             var search=(TextBox)window.FindName("NavigationSearch");search.Text="Maintenance";
             if(tabs.Items.Cast<TabItem>().Count(t=>t.Visibility==Visibility.Visible)!=1)throw new InvalidOperationException("Navigation search did not filter sections.");
             search.Clear();
