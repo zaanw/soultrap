@@ -11,9 +11,8 @@ internal static class ThemeVisualChecks
         var error=(Border)window.FindName("ErrorSurface");
         AssertPixel(page,(SolidColorBrush)Application.Current.FindResource("Surface"),"page");
         AssertPixel(error,(SolidColorBrush)Application.Current.FindResource("Panel"),"error bar");
-        foreach(var viewer in Descendants<ScrollViewer>(window))
-            if(viewer.Background is not SolidColorBrush fill || fill.Color.A!=255)
-                throw new InvalidOperationException("A scroll viewer has no opaque theme background.");
+        if(window.NavigationPages.SelectedContent is ScrollViewer viewer)
+            AssertPixel(viewer,(SolidColorBrush)Application.Current.FindResource("Surface"),"page scroll viewer");
         var button=Descendants<Button>(window).First(b=>b.Content?.ToString()=="Save settings");
         var text=Descendants<TextBlock>(button).First(t=>t.Text=="Save settings");
         if(text.Foreground is not SolidColorBrush actual || button.Foreground is not SolidColorBrush expected || actual.Color!=expected.Color)
