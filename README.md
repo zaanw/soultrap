@@ -1,6 +1,6 @@
 # SOULTRAP — Ultimate Aero
 
-An independent Windows 11 WPF Roblox customization workbench, with compact Windows 7-inspired chrome. **Version 0.1.0 is an initial implementation, not a Windows-validated production release.** Soultrap is not affiliated with Roblox.
+An independent Windows 11 WPF Roblox customization workbench, with compact Windows 7-inspired chrome. **Version 0.1.0 builds and passes automated tests in Windows and Linux CI; manual Windows GUI / Roblox acceptance is still outstanding.** Soultrap is not affiliated with Roblox.
 
 ## Build and run
 

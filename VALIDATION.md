@@ -12,9 +12,20 @@
 
 Current-run TRX: `Soultrap.Tests/TestResults/cloud.trx` (generated, not committed). ZIP: `artifacts/Soultrap-0.1.0-win-x64.zip`; checksums: `artifacts/SHA256SUMS.txt` (generated, not committed). The archive includes all required dependencies, original assets and license notices.
 
-## Windows checks not executed here
+## Windows CI — verified remotely
 
-WPF visual inspection, contrast under each theme, tray/autostart, Windows credentials/DPAPI enrollment, Windows Hello (not implemented), real Roblox discovery/signature/launch, in-game cursor effects, installer compile/run/uninstall, and real release download/install were **not tested**. Inno Setup 6 and Windows are unavailable on the cloud host. Windows GitHub Actions is configured to build and test, compile the installer, upload artifacts and create a draft prerelease only after both jobs succeed. Local validation does not establish that those remote jobs succeeded. No public production release is claimed.
+GitHub Actions run [41642598611](https://github.com/zaanw/soultrap/actions/runs/41642598611), application code commit `5230c1e443d801a83eba63cf83b68e2d1cfb044d`:
+
+* `windows`: completed successfully. Locked restore, Release build, xUnit run, self-contained publish, Inno Setup installer compilation and artifact uploads each have success status.
+* `core-linux`: completed successfully.
+* `release-draft`: completed successfully, including downloading the Windows artifacts and the create/retain draft prerelease step. The draft is accessible to repository maintainers under Releases; no public release publication is claimed.
+* Uploaded artifact **Soultrap-Windows-x64** contains portable ZIP, SHA-256 checksums and `installer/Soultrap-0.1.0-Setup-x64.exe`. The artifact listing reports 117 MB.
+
+The first run failed in Linux because `--locked-mode` was passed to `dotnet test`; the workflow now performs explicit locked restore before testing. The corrected run above passed. Node 20 action deprecation notices are warnings, not build failures.
+
+## Manual Windows checks still outstanding
+
+WPF visual inspection, contrast under each theme, tray/autostart, Windows credentials/DPAPI enrollment, Windows Hello (not implemented), real Roblox discovery/signature/launch, in-game cursor effects, installer run/uninstall, and real release download/install were **not tested**. Inno Setup 6 and Windows are unavailable on the cloud host. Windows CI compilation/test/packaging succeeded as recorded above. It does not validate interaction with Windows GUI or Roblox. No public production release is claimed.
 
 Manual acceptance on Windows 11: build/install; run with Roblox missing and present; launch official Roblox; close it; apply each original cursor to a disposable client and check visuals; restore and compare hashes; update Roblox and confirm old journal refusal; test custom PNG re-centering; test ZIP rejection; change/reload each theme and config; exercise corrupt config preservation; authenticate/cancel/wrong-account owner login; verify tray and Run key; uninstall without deleting backup data. Do not promote the release before these checks.
 
