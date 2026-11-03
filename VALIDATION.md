@@ -1,5 +1,17 @@
 # Validation — 2026-11-03
 
+## 0.3.1 — menu and in-app EXE updates
+
+Application commit `a010987`, [CI 41667558056](https://github.com/zaanw/soultrap/actions/runs/41667558056): Windows, Linux, stable release publication and live public-feed verification all succeeded. Release: https://github.com/zaanw/soultrap/releases/tag/v0.3.1 . Direct installer: https://github.com/zaanw/soultrap/releases/download/v0.3.1/Soultrap-0.3.1-Setup-x64.exe .
+
+* Local Release build: zero warnings/errors; 77 tests passed, none failed/skipped. Windows/Linux unit jobs passed the same suite.
+* Windows GUI smoke opened the grouped/custom-title-bar menu, all sections and all themes in each startup mode, with the existing pixel/foreground checks enabled.
+* Installer integration installed the previous public 0.3.0, upgraded to 0.3.1, waited for the restarted main window and verified unchanged settings/backup bytes. Test uninstall retained user data. The preceding 0.3.0 build had also verified the transition from 0.2.1.
+* The live Windows job used the actual updater code against the public Releases API, downloaded the published EXE and rechecked hash/PE. It did not execute that downloaded file. Installer execution was tested separately with the locally built CI candidate.
+* Explicit update confirmation, Windows download-zone marking, fixed repository/version/URL validation, bounded/cancellable downloads and locked hash verification are implemented. A publisher certificate is still absent; this does not remove Windows trust prompts or provide unattended publisher-pinned updates.
+
+This validates the launcher/update workflow, not live Roblox gameplay or every possible user machine. See UPDATING.md for bootstrap and trust boundaries.
+
 ## 0.2.1 — rendered theme regression
 
 Application commit `26f0e4f`, [Windows CI 41661487829](https://github.com/zaanw/soultrap/actions/runs/41661487829): Windows build, unit tests, GUI smoke, publish and installer packaging succeeded. GUI checks render the shared window root, translate page/footer/scroll coordinates into that frame and compare pixels against the active palette; body text and primary-button foreground inheritance are checked in every theme. Existing 56 unit/integration tests remain unchanged. This fixes the white dark-mode page/error area shown in user feedback; it does not change Roblox detection or claim gameplay testing.
