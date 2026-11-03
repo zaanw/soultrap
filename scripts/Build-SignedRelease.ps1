@@ -16,7 +16,8 @@ if (!$timestamp.IsAbsoluteUri -or $timestamp.Scheme -ne 'https') { throw 'An HTT
 $certificate = Get-Item "Cert:\CurrentUser\My\$thumbprint" -ErrorAction Stop
 if (!$certificate.HasPrivateKey) { throw 'Certificate has no accessible private key. Configure its Windows key provider or hardware token.' }
 if ($certificate.NotAfter -le (Get-Date) -or $certificate.NotBefore -gt (Get-Date)) { throw 'Certificate is not currently valid.' }
-if (!($certificate.EnhancedKeyUsageList | Where-Object { $_.ObjectId.Value -eq '1.3.6.1.5.5.7.3.3' })) {
+$eku = $certificate.Extensions | Where-Object { $_.Oid.Value -eq '2.5.29.37' } | Select-Object -First 1
+if (!$eku -or !($eku.EnhancedKeyUsages | Where-Object { $_.Value -eq '1.3.6.1.5.5.7.3.3' })) {
     throw 'Certificate must explicitly permit Code Signing.'
 }
 $chain = [System.Security.Cryptography.X509Certificates.X509Chain]::new()
