@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soultrap.Core", "Soultrap.Core\Soultrap.Core.csproj", "{FC217890-FADA-4C25-BB7B-A391EC317694}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soultrap.Infrastructure", "Soultrap.Infrastructure\Soultrap.Infrastructure.csproj", "{187F4C15-AEA9-4339-B58B-2F672E60D454}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soultrap.App", "Soultrap.App\Soultrap.App.csproj", "{9723F017-59C0-4104-AFE0-BF5D311016EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soultrap.Tests", "Soultrap.Tests\Soultrap.Tests.csproj", "{E662C101-A230-4003-9E09-BC08AB6513D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC217890-FADA-4C25-BB7B-A391EC317694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC217890-FADA-4C25-BB7B-A391EC317694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC217890-FADA-4C25-BB7B-A391EC317694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC217890-FADA-4C25-BB7B-A391EC317694}.Release|Any CPU.Build.0 = Release|Any CPU
+		{187F4C15-AEA9-4339-B58B-2F672E60D454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{187F4C15-AEA9-4339-B58B-2F672E60D454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{187F4C15-AEA9-4339-B58B-2F672E60D454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{187F4C15-AEA9-4339-B58B-2F672E60D454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9723F017-59C0-4104-AFE0-BF5D311016EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9723F017-59C0-4104-AFE0-BF5D311016EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9723F017-59C0-4104-AFE0-BF5D311016EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9723F017-59C0-4104-AFE0-BF5D311016EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E662C101-A230-4003-9E09-BC08AB6513D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E662C101-A230-4003-9E09-BC08AB6513D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E662C101-A230-4003-9E09-BC08AB6513D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E662C101-A230-4003-9E09-BC08AB6513D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

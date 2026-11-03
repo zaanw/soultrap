@@ -1,0 +1,73 @@
+name: Build and test Soultrap
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.427'
+          cache: true
+          cache-dependency-path: '**/packages.lock.json'
+      - run: dotnet restore Soultrap.sln --locked-mode
+      - run: dotnet build Soultrap.sln -c Release --no-restore
+      - run: dotnet test Soultrap.Tests -c Release --no-build --logger 'trx;LogFileName=windows.trx'
+      - run: dotnet publish Soultrap.App -c Release -r win-x64 --self-contained true -p:PublishSingleFile=false -o artifacts/publish
+      - name: Package portable build and installer
+        shell: pwsh
+        run: |
+          Compress-Archive -Path artifacts/publish/* -DestinationPath artifacts/Soultrap-0.1.0-win-x64.zip
+          $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          if (!(Test-Path $compiler)) { throw 'Inno Setup 6 is required on this Windows runner.' }
+          & $compiler /DPublishDir="$pwd\artifacts\publish" Soultrap.Installer/Soultrap.iss
+          if ($LASTEXITCODE -ne 0) { throw 'Installer compilation failed.' }
+          Get-ChildItem artifacts -Filter *.zip | Get-FileHash -Algorithm SHA256 | Format-Table -AutoSize | Out-String | Set-Content artifacts/SHA256SUMS.txt
+          Get-ChildItem artifacts/installer -Filter *.exe | Get-FileHash -Algorithm SHA256 | Format-Table -AutoSize | Out-String | Add-Content artifacts/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Soultrap-Windows-x64
+          path: |
+            artifacts/*.zip
+            artifacts/SHA256SUMS.txt
+            artifacts/installer/*.exe
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: '**/TestResults/*.trx'
+  core-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.427'
+      - run: dotnet test Soultrap.Tests -c Release --locked-mode
+  release-draft:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [windows, core-linux]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: Soultrap-Windows-x64
+          path: release-files
+      - name: Create draft prerelease without replacing existing assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v0.1.0 >/dev/null 2>&1; then
+            echo 'Existing v0.1.0 release retained. New files remain in workflow artifacts.'
+          else
+            gh release create v0.1.0 $(find release-files -type f) --target "$GITHUB_SHA" --draft --prerelease --title 'Soultrap 0.1.0 — Windows validation pending' --notes-file CHANGELOG.md
+          fi

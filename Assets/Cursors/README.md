@@ -1,0 +1,1 @@
+Original Soultrap geometric cursor art; MIT. Era names describe inspiration, not official Roblox assets. Built-in PNGs are 64×64 with click reference at centre (32,32). Visual effect must be tested in current Roblox.
