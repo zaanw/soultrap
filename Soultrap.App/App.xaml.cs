@@ -64,7 +64,7 @@ public partial class App : Application
         if(smoke)window.Loaded+=async (_,_)=>await SmokeAsync(window,splash is not null,!e.Args.Contains("--no-splash"));
         window.Show();splash?.Close();
         ShutdownMode=ShutdownMode.OnMainWindowClose;
-        if(!smoke && vm.Config.CheckUpdates)_=vm.ExecuteAsync("Updates");
+        if(!smoke && vm.Config.CheckUpdates)_=vm.CheckUpdatesInBackgroundAsync();
     }
     private async Task SmokeAsync(MainWindow window,bool splashShown,bool expectSplash)
     {

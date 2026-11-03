@@ -121,7 +121,21 @@ public sealed class MainViewModel : Observable
             Changed(nameof(VisibleUpstreamSettings)); Changed(nameof(UpstreamSummary));
             RefreshCursorPreview(); StartupProgress=100; StartupStatus="Ready";
         });
-        if(checkUpdates && Config.CheckUpdates)await ExecuteAsync("Updates");
+        if(checkUpdates && Config.CheckUpdates)await CheckUpdatesInBackgroundAsync();
+    }
+    private static string DescribeRelease(ReleaseInfo value) => $"{value.Tag} · {(UpdateService.IsNewer(value.Tag,new Version(0,2,0))?"New release available":"Up to date")}\n{value.Notes}\nAuthenticity: no Soultrap publisher certificate is pinned; installation is manual.";
+    public async Task CheckUpdatesInBackgroundAsync()
+    {
+        try
+        {
+            release=await updates.CheckAsync();UpdateText=DescribeRelease(release);
+            log.Write("info","background-updates","Release metadata checked.");
+        }
+        catch(Exception error)
+        {
+            UpdateText="Automatic update check unavailable: "+error.Message;
+            log.Write("warning","background-updates",error.Message);
+        }
     }
     private void ThemesApply()=>Soultrap.App.Themes.Apply(Config);
     private async Task RefreshAsync()
@@ -255,7 +269,7 @@ public sealed class MainViewModel : Observable
             case "ResetSettings":Config=new Settings();await SaveSettingsAsync();break;
             case "ImportSettings":if(Open("JSON|*.json") is {} settingsFile){var imported=await JsonFiles.ReadAsync<Settings>(settingsFile);imported.Validate();Config=imported;await SaveSettingsAsync();}else Status="Cancelled.";break;
             case "ExportSettings":Config.Validate();if(Save("JSON|*.json","soultrap-settings.json") is {} settingsOut)await JsonFiles.WriteAsync(settingsOut,Config with{LaunchUri="roblox-player:"});else Status="Cancelled.";break;
-            case "Updates":release=await updates.CheckAsync();UpdateText=$"{release.Tag} · {(UpdateService.IsNewer(release.Tag,new Version(0,2,0))?"New release available":"Up to date")}\n{release.Notes}\nAuthenticity: no Soultrap publisher certificate is pinned; installation is manual.";break;
+            case "Updates":release=await updates.CheckAsync();UpdateText=DescribeRelease(release);break;
             case "DownloadUpdate":
                 if(release is null)throw new InvalidOperationException("Check releases first.");var asset=release.Assets.FirstOrDefault(a=>a.Name.EndsWith("-win-x64.zip",StringComparison.OrdinalIgnoreCase))??throw new InvalidOperationException("Release has no x64 portable ZIP.");
                 if(Save("ZIP|*.zip",Path.GetFileName(asset.Name)) is {} destination){await updates.DownloadAsync(asset,destination);Status="Archive downloaded and SHA-256 verified against GitHub metadata. Publisher authenticity is not pinned; nothing was executed.";}else Status="Cancelled.";break;
